@@ -11,7 +11,6 @@ public class PlayerMovement : MonoBehaviour
     Rigidbody playerRigidbody;
 
     private Transform carryPoint;
-    private GameObject carriedObject;
 
     bool isWalking;
 
@@ -38,27 +37,5 @@ public class PlayerMovement : MonoBehaviour
         float rotateSpeed = 10f;
         transform.forward = Vector3.Slerp(transform.forward, moveDirection, Time.deltaTime * rotateSpeed);
     }
-    public void HandlePlayerTake(GameObject targetObject)
-    {
-        if (carriedObject == null && targetObject != null)
-        {
-            targetObject.GetComponent<Rigidbody>().useGravity = false;
-            carriedObject = targetObject;
-            carriedObject.transform.SetParent(carryPoint);
-            carriedObject.transform.localPosition = new Vector3(carryPoint.localPosition.x/3, carryPoint.localPosition.y/4, carryPoint.localPosition.z/4);
-            //carriedObject.GetComponent<Rigidbody>().isKinematic = true;
-            Debug.Log("Object picked up: " + carriedObject.name);
-        }
-    }
-    public void HandlePlayerPutDown()
-    {
-        if (carriedObject != null)
-        {
-            carriedObject.transform.SetParent(null);
-            //carriedObject.GetComponent<Rigidbody>().isKinematic = false;
-            carriedObject.GetComponent<Rigidbody>().useGravity = true;
-            carriedObject = null;
-            Debug.Log("Object dropped!");
-        }
-    }
+   
 }

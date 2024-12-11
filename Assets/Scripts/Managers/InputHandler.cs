@@ -6,32 +6,37 @@ using UnityEngine.InputSystem;
 public class InputHandler : MonoBehaviour
 {
     PlayerInput playerInput;
-    bool isPlayerEnter;
-    GameObject package;
     private void Awake()
     {
         playerInput = new PlayerInput();
         playerInput.Player.Enable();
 
-        playerInput.Player.PickUp.performed += PlayerTake;
-        playerInput.Player.Drop.performed += PlayerPutDown;
+        playerInput.Player.PickUp.performed += PlayerPickUp;
+        playerInput.Player.Drop.performed += PlayerDrop;
+        playerInput.Player.Throw.performed += PlayerThrow;
     }
 
-    private void PlayerPutDown(InputAction.CallbackContext context)
+    private void PlayerThrow(InputAction.CallbackContext context)
     {
         if (context.ReadValueAsButton())
         {
-            PlayerMovement.Instance.HandlePlayerPutDown();
+            PlayerController.Instance.HandleThrowPackage();
         }
     }
 
-    private void PlayerTake(InputAction.CallbackContext context)
+    private void PlayerDrop(InputAction.CallbackContext context)
     {
-        if (context.ReadValueAsButton() && isPlayerEnter)
+        if (context.ReadValueAsButton())
         {
-            //GameObject targetObject = raycastManager.PerformFanRaycast();
-            
-            PlayerMovement.Instance.HandlePlayerTake(package.gameObject);
+            PlayerController.Instance.HandleDropPackage();
+        }
+    }
+
+    private void PlayerPickUp(InputAction.CallbackContext context)
+    {
+        if (context.ReadValueAsButton())
+        {
+            PlayerController.Instance.HandlePickUpPackage();
         }
     }
 
