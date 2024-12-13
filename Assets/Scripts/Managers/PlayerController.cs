@@ -40,6 +40,12 @@ public class PlayerController : MonoBehaviour
             isEmpty = false;
 
             Debug.Log("Picked up package: " + currentPackage.name);
+
+            Debug.Log("Package Weight: " + currentPackage.cargoSO.weight);
+            Debug.Log("Package Type: " + currentPackage.cargoSO.cargoName);
+            Debug.Log("Package Size: " + currentPackage.cargoSO.weight);
+            
+            
         }
         else
             Debug.Log("Distance is so big");
