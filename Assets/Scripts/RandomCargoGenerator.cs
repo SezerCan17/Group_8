@@ -15,7 +15,7 @@ public class RandomCargoGenerator : MonoBehaviour
         cargo.cargoName = cargoNames[Random.Range(0, cargoNames.Length)];
         cargo.cargoType = (CargoType)Random.Range(0, System.Enum.GetValues(typeof(CargoType)).Length);
         cargo.weight = Random.Range(minWeight, maxWeight);
-        cargo.destination = locations[Random.Range(0, locations.Length)];
+        //cargo.destination = locations[Random.Range(0, locations.Length)];
         cargo.deliveryDeadline = Random.Range(minDeliveryTime, maxDeliveryTime);
 
         return cargo;

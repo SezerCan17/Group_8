@@ -6,7 +6,8 @@ public enum CargoType
     Food,
     Clothing,
     Furniture,
-    Documents
+    Documents,
+    Industrial
 }
 
 
@@ -16,7 +17,7 @@ public class CargoSO : ScriptableObject
     public string cargoName;
     public CargoType cargoType; 
     public float weight;
-    public LocationSO destination;
+    public LocationType locationType;
     public float deliveryDeadline; 
      public GameObject cargoPrefab;
 }

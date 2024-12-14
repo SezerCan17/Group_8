@@ -25,7 +25,7 @@ public class CargoBranch : MonoBehaviour
     {
         foreach (var cargo in cargoList)
         {
-            Debug.Log($"Kargo: {cargo.cargoName}, Tür: {cargo.cargoType}, Hedef: {cargo.destination.locationName}, Ağırlık: {cargo.weight}, Süre: {cargo.deliveryDeadline}s");
+            Debug.Log($"Kargo: {cargo.cargoName}, Tür: {cargo.cargoType},  Ağırlık: {cargo.weight}, Süre: {cargo.deliveryDeadline}s");
         }
     }
 }

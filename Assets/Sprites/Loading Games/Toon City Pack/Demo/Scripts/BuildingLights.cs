@@ -11,12 +11,18 @@ public class BuildingLights : MonoBehaviour {
 
     private void Start() {
         mr = GetComponent<MeshRenderer>();
-        defaultColor = mr.materials[windowMaterialIndex].color;
+        defaultColor = mr.sharedMaterials[windowMaterialIndex].color; // sharedMaterials ile başlangıç rengi
         SetLights(areLightsOn);
     }
 
     public void SetLights(bool isOn) {
-        mr.materials[windowMaterialIndex].shader = isOn ? Shader.Find("Unlit/Color") : Shader.Find("Standard");
-        mr.materials[windowMaterialIndex].color = isOn ? lightColor : defaultColor;
+        // Eğer ışık açıldıysa URP Lit shader'ını kullan, kapalıysa Standart Shader'a geç
+        if (isOn) {
+            mr.sharedMaterials[windowMaterialIndex].shader = Shader.Find("Universal Render Pipeline/Lit");
+        } else {
+            mr.sharedMaterials[windowMaterialIndex].shader = Shader.Find("Universal Render Pipeline/Unlit"); // Veya başka bir uygun shader
+        }
+        
+        mr.sharedMaterials[windowMaterialIndex].color = isOn ? lightColor : defaultColor;
     }
 }
