@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03e5132384c0f5548a7ffc0eeed33b27, type: 3}
   m_Name: Apartment8.2
   m_EditorClassIdentifier: 
-  locationName: 0
-  coordinates: {x: -88.52, y: -11.49, z: -89.8}
+  locationName: 7
+  coordinates: {x: -92.45055, y: -11.49, z: 19.981205}

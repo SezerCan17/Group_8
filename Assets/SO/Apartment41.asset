@@ -15,7 +15,7 @@ MonoBehaviour:
   cargoName: Apartment1
   cargoType: 1
   weight: 1
-  locationType: 0
+  locationType: 40
   deliveryDeadline: 5
   cargoPrefab: {fileID: 7120426531751246031, guid: e38df0f3454a6cb4abb0053a3dd5c675,
     type: 3}
