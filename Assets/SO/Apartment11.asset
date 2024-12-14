@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f572570732df1414192f2e1919223ffe, type: 3}
-  m_Name: Aparts
+  m_Name: Apartment11
   m_EditorClassIdentifier: 
-  cargoName: Power
+  cargoName: Apartment1
   cargoType: 1
   weight: 1
-  destination: {fileID: 0}
+  locationType: 0
   deliveryDeadline: 5
   cargoPrefab: {fileID: 7120426531751246031, guid: e38df0f3454a6cb4abb0053a3dd5c675,
     type: 3}
