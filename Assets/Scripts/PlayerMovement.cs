@@ -11,8 +11,15 @@ public class PlayerMovement : MonoBehaviour
     Rigidbody playerRigidbody;
 
     private Transform carryPoint;
+    public Animator Anim;
+    public string AnimState;
+    private int state = ANIMSTATE_IDLE;
 
     bool isWalking;
+
+    const int ANIMSTATE_IDLE = 0;
+    const int ANIMSTATE_WALK = 1;
+
 
     private void Awake()
     {
@@ -36,7 +43,19 @@ public class PlayerMovement : MonoBehaviour
 
         float rotateSpeed = 10f;
         transform.forward = Vector3.Slerp(transform.forward, moveDirection, Time.deltaTime * rotateSpeed);
-        
+
+        if (moveDirection.sqrMagnitude > 0 && state == 0)
+        {
+            state = 1;
+            AnimState = "Walk";
+            Anim.CrossFade(AnimState, .1f);
+        }
+        else if (moveDirection.sqrMagnitude == 0 && state == 1)
+        {
+            state = 0;
+            AnimState = "Idle";
+            Anim.CrossFade(AnimState, .1f);
+        }
     }
    
 }

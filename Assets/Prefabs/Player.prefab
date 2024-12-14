@@ -151,6 +151,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   InputHandler: {fileID: 0}
   moveSpeed: 5
+  Anim: {fileID: 0}
+  AnimState: 
 --- !u!114 &8095819467418594395
 MonoBehaviour:
   m_ObjectHideFlags: 0

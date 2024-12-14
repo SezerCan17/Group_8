@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public Package currentPackage; 
+    [HideInInspector]public Package currentPackage; 
     private Package lastTouchedPackage; 
     public static PlayerController Instance;
 
@@ -35,8 +35,7 @@ public class PlayerController : MonoBehaviour
             currentPackage.isPickedUp = true;
             currentPackage.GetComponent<Rigidbody>().useGravity = false;
             currentPackage.transform.SetParent(this.transform);
-            this.GetComponent<Rigidbody>().isKinematic = true;
-            currentPackage.transform.localPosition = new Vector3(0, 0.5f, 1f); 
+            currentPackage.transform.localPosition = new Vector3(0, 1f, 1f); 
             isEmpty = false;
 
             Debug.Log("Picked up package: " + currentPackage.name);
@@ -58,7 +57,6 @@ public class PlayerController : MonoBehaviour
             currentPackage.isPickedUp = false;
             currentPackage.transform.SetParent(null);
             currentPackage.GetComponent<Rigidbody>().useGravity = true;
-            this.GetComponent<Rigidbody>().isKinematic = false;
             currentPackage = null;
             isEmpty = true;
 
@@ -82,7 +80,6 @@ public class PlayerController : MonoBehaviour
             currentPackage.isPickedUp = false;
             currentPackage.transform.SetParent(null);
             currentPackage.GetComponent<Rigidbody>().useGravity = true;
-            this.GetComponent<Rigidbody>().isKinematic = false;
 
             Vector3 throwDirection = transform.forward;
             float throwForce = 25f;
