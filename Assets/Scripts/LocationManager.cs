@@ -8,10 +8,7 @@ public class LocationManager : MonoBehaviour
     void Awake()
     {
         // Pozisyonları burada tanımlayın
-        locationPositions[LocationType.TrainStation] = new Vector3(10, 0, 20);
-        locationPositions[LocationType.PowerPlant] = new Vector3(-15, 0, 30);
-        locationPositions[LocationType.Apartments] = new Vector3(5, 0, 40);
-        locationPositions[LocationType.LemonadeShop] = new Vector3(-25, 0, 10);
+        
         // Diğer pozisyonları ekleyin...
     }
 
