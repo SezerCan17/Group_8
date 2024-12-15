@@ -1,8 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
-using SimpleInputNamespace;
 using UnityEngine;
-using UnityEngine.EventSystems;
 using DG.Tweening;
 
 public class CarController : MonoBehaviour
@@ -20,15 +18,13 @@ public class CarController : MonoBehaviour
     public float reverseForce = 1000f;
     public float stopThreshold = 1f;
     public float flipThresholdAngle = 45f;
+    public float steeringSmoothTime = 0.5f; // Duration to smooth the steering
 
     private float currentSteerAngle;
     private float currentAcceleration;
     private float currentBrakeForce;
-    private bool isReversing = false;
     private bool isCheckingFlip = false;
     private float flipCheckTime = 4f;
-
-    public SteeringWheel steeringWheel;
 
     private Rigidbody carRigidbody;
     private Renderer carRenderer;
@@ -37,9 +33,6 @@ public class CarController : MonoBehaviour
     {
         carRigidbody = GetComponent<Rigidbody>();
         carRenderer = GetComponent<Renderer>();
-
-        FindSteeringWheel();
-        FindButtonAndAssignEventTrigger();
 
         // Adjust center of mass
         carRigidbody.centerOfMass = new Vector3(0, -0.5f, 0);
@@ -59,15 +52,7 @@ public class CarController : MonoBehaviour
         // Ground check
         if (Physics.Raycast(transform.position, -Vector3.up, 1.5f))
         {
-            if (steeringWheel != null)
-            {
-                currentSteerAngle = maxSteerAngle * steeringWheel.Value;
-            }
-            else
-            {
-                HandleInput();
-            }
-
+            HandleInput();
             ApplyMovement();
             UpdateWheelPoses();
             CheckFlip();
@@ -83,27 +68,34 @@ public class CarController : MonoBehaviour
         // Reset inputs
         currentAcceleration = 0f;
         currentBrakeForce = 0f;
-        currentSteerAngle = 0f;
 
         if (Input.GetKey(KeyCode.W))
         {
             currentAcceleration = motorForce;
         }
+        else if (Input.GetKey(KeyCode.S))
+        {
+            currentAcceleration = -reverseForce;
+        }
 
-        if (Input.GetKey(KeyCode.S))
+        if (Input.GetKey(KeyCode.Space))
         {
             currentBrakeForce = brakeForce;
         }
 
+        // Smoothly steer the car
+        float targetSteerAngle = 0f;
+
         if (Input.GetKey(KeyCode.A))
         {
-            currentSteerAngle = -maxSteerAngle;
+            targetSteerAngle = -maxSteerAngle;
+        }
+        else if (Input.GetKey(KeyCode.D))
+        {
+            targetSteerAngle = maxSteerAngle;
         }
 
-        if (Input.GetKey(KeyCode.D))
-        {
-            currentSteerAngle = maxSteerAngle;
-        }
+        DOTween.To(() => currentSteerAngle, x => currentSteerAngle = x, targetSteerAngle, steeringSmoothTime);
 
         Debug.Log($"Acceleration: {currentAcceleration}, Brake: {currentBrakeForce}, Steer: {currentSteerAngle}");
     }
@@ -167,74 +159,6 @@ public class CarController : MonoBehaviour
         }
         rearLeftWheelCollider.motorTorque = currentAcceleration;
         rearRightWheelCollider.motorTorque = currentAcceleration;
-    }
-
-    private void FindSteeringWheel()
-    {
-        GameObject steeringWheelObj = GameObject.Find("SteeringWheel");
-        if (steeringWheelObj != null)
-        {
-            steeringWheel = steeringWheelObj.GetComponent<SteeringWheel>();
-        }
-    }
-
-    private void FindButtonAndAssignEventTrigger()
-    {
-        GameObject gasButton = GameObject.Find("gasButton");
-        if (gasButton != null)
-        {
-            AddEventTriggers(gasButton, GasOn, BrakeOn);
-        }
-        GameObject reverseButton = GameObject.Find("reverseButton");
-        if (reverseButton != null)
-        {
-            AddEventTriggers(reverseButton, ReverseOn, BrakeOn);
-        }
-        GameObject brakeButton = GameObject.Find("brakeButton");
-        if (brakeButton != null)
-        {
-            AddEventTriggerToPointerDown(brakeButton, BrakeOn);
-        }
-    }
-
-    private void AddEventTriggers(GameObject buttonObj, UnityEngine.Events.UnityAction pointerDownAction, UnityEngine.Events.UnityAction pointerUpAction)
-    {
-        EventTrigger eventTrigger = buttonObj.GetComponent<EventTrigger>() ?? buttonObj.AddComponent<EventTrigger>();
-
-        EventTrigger.Entry pointerDownEntry = new EventTrigger.Entry { eventID = EventTriggerType.PointerDown };
-        pointerDownEntry.callback.AddListener(_ => pointerDownAction.Invoke());
-        eventTrigger.triggers.Add(pointerDownEntry);
-
-        EventTrigger.Entry pointerUpEntry = new EventTrigger.Entry { eventID = EventTriggerType.PointerUp };
-        pointerUpEntry.callback.AddListener(_ => pointerUpAction.Invoke());
-        eventTrigger.triggers.Add(pointerUpEntry);
-    }
-
-    private void AddEventTriggerToPointerDown(GameObject buttonObj, UnityEngine.Events.UnityAction pointerDownAction)
-    {
-        EventTrigger eventTrigger = buttonObj.GetComponent<EventTrigger>() ?? buttonObj.AddComponent<EventTrigger>();
-
-        EventTrigger.Entry pointerDownEntry = new EventTrigger.Entry { eventID = EventTriggerType.PointerDown };
-        pointerDownEntry.callback.AddListener(_ => pointerDownAction.Invoke());
-        eventTrigger.triggers.Add(pointerDownEntry);
-    }
-
-    public void GasOn()
-    {
-        currentAcceleration = motorForce;
-        currentBrakeForce = 0f;
-    }
-
-    public void BrakeOn()
-    {
-        currentAcceleration = 0f;
-        currentBrakeForce = brakeForce;
-    }
-
-    public void ReverseOn()
-    {
-        currentAcceleration = -reverseForce;
-        currentBrakeForce = 0f;
     }
 
     private void UpdateWheelPoses()
