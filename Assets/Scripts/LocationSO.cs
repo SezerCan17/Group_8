@@ -107,7 +107,7 @@ public class LocationSO : ScriptableObject
     public LocationType locationName;
     public Vector3 coordinates;
 
-    private static readonly Dictionary<LocationType, Vector3> predefinedCoordinates = new Dictionary<LocationType, Vector3>
+    public Dictionary<LocationType, Vector3> predefinedCoordinates = new Dictionary<LocationType, Vector3>
     {
         
         //Apartments
@@ -210,7 +210,7 @@ public class LocationSO : ScriptableObject
 
     };
 
-    private void OnValidate()
+    public void OnValidate()
     {
         // Eğer sözlükte tanımlı bir koordinat varsa otomatik olarak ata
         if (predefinedCoordinates.TryGetValue(locationName, out Vector3 newCoordinates))
