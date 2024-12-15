@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Security.Cryptography.X509Certificates;
 using UnityEngine;
 
@@ -6,11 +7,13 @@ public class CargoSpawner : MonoBehaviour
     public CargoSO[] availableCargos; // Tüm kargo türleri
     public Transform[] spawnPoint;   // Spawn yerleri
 
-    public GameObject sfx;           // SFX prefab'i
+    public GameObject sfx;          
 
     public LocationSO locationSO;   // Adres bilgileri için LocationSO
 
     [SerializeField] private int cargoSpawnNum = 1; // Spawn edilecek kargo sayısı
+
+    public List<Vector3> spawnedPoints;
 
     void Start()
     {
@@ -47,6 +50,8 @@ public class CargoSpawner : MonoBehaviour
                 
                 GameObject sfxMailBox = Instantiate(sfx, new Vector3(targetPosition.x+13.7f, targetPosition.y+11.5f, targetPosition.z+28.15f), Quaternion.identity);
                 sfxMailBox.name = "SFX for " + selectedCargo.cargoName;
+
+                spawnedPoints.Add(targetPosition);
             }
             else
             {

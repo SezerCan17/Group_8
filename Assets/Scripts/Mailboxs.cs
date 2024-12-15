@@ -4,5 +4,5 @@ using UnityEngine;
 
 public class Mailboxs : MonoBehaviour
 {
-    [SerializeField] public GameObject[] mailBox;  // Mailbox objeleri
+    [SerializeField] public GameObject[] mailBox;  
 }

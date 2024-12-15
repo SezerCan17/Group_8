@@ -7,9 +7,7 @@ public class LocationManager : MonoBehaviour
 
     void Awake()
     {
-        // Pozisyonları burada tanımlayın
         
-        // Diğer pozisyonları ekleyin...
     }
 
     public static Vector3 GetLocationPosition(LocationType locationType)
