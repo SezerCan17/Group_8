@@ -24,15 +24,6 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Drop",
-                    "type": "Button",
-                    "id": "9e0ba5dc-1f3f-497f-9880-7e84a347532f",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
                     "name": "Throw",
                     "type": "Button",
                     "id": "95e9581a-aa95-489b-9130-280a26b64613",
@@ -111,19 +102,8 @@
                 },
                 {
                     "name": "",
-                    "id": "5e4dd22b-1a4e-46e4-b21e-25d7b2c1b84e",
-                    "path": "<Keyboard>/p",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard",
-                    "action": "Drop",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "3cd623dc-b4a1-4245-addc-bb7f85d89110",
-                    "path": "<Keyboard>/l",
+                    "path": "<Keyboard>/p",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard",
