@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    [HideInInspector]public Package currentPackage; 
-    private Package lastTouchedPackage; 
+    [HideInInspector] public Package currentPackage;
+    private Package lastTouchedPackage;
     public static PlayerController Instance;
 
-    bool isEmpty = true;
+    public bool isEmpty = true;
+    public bool isThrew = false;
 
     private void Awake()
     {
@@ -21,7 +22,7 @@ public class PlayerController : MonoBehaviour
 
         if (package != null && !package.isPickedUp)
         {
-            lastTouchedPackage = package; 
+            lastTouchedPackage = package;
             Debug.Log("Touched package: " + package.name);
         }
     }
@@ -35,7 +36,7 @@ public class PlayerController : MonoBehaviour
             currentPackage.isPickedUp = true;
             currentPackage.GetComponent<Rigidbody>().useGravity = false;
             currentPackage.transform.SetParent(this.transform);
-            currentPackage.transform.localPosition = new Vector3(0, 1f, 1f); 
+            currentPackage.transform.localPosition = new Vector3(0, 1.5f, 1f);
             isEmpty = false;
 
             Debug.Log("Picked up package: " + currentPackage.name);
@@ -43,8 +44,8 @@ public class PlayerController : MonoBehaviour
             Debug.Log("Package Weight: " + currentPackage.cargoSO.weight);
             Debug.Log("Package Type: " + currentPackage.cargoSO.cargoName);
             Debug.Log("Package Size: " + currentPackage.cargoSO.weight);
-            
-            
+
+
         }
         else
             Debug.Log("Distance is so big");
@@ -77,6 +78,7 @@ public class PlayerController : MonoBehaviour
     {
         if (currentPackage != null)
         {
+            isThrew = true;
             currentPackage.isPickedUp = false;
             currentPackage.transform.SetParent(null);
             currentPackage.GetComponent<Rigidbody>().useGravity = true;
@@ -88,7 +90,6 @@ public class PlayerController : MonoBehaviour
 
             currentPackage = null;
             isEmpty = true;
-
             Debug.Log("Threw package.");
         }
     }

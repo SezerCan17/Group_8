@@ -19,6 +19,9 @@ public class PlayerMovement : MonoBehaviour
 
     const int ANIMSTATE_IDLE = 0;
     const int ANIMSTATE_WALK = 1;
+    const int ANIMSTATE_BOX_WALK = 2;
+    const int ANIMSTATE_BOX_IDLE = 3;
+    const int ANIMSTATE_THROW = 4;
 
 
     private void Awake()
@@ -44,18 +47,36 @@ public class PlayerMovement : MonoBehaviour
         float rotateSpeed = 10f;
         transform.forward = Vector3.Slerp(transform.forward, moveDirection, Time.deltaTime * rotateSpeed);
 
-        if (moveDirection.sqrMagnitude > 0 && state == 0)
+        if (moveDirection.sqrMagnitude > 0 && PlayerController.Instance.isEmpty)
         {
-            state = 1;
-            AnimState = "Walk";
-            Anim.CrossFade(AnimState, .1f);
+            ChangeAnimationState("Walk", 1);
         }
-        else if (moveDirection.sqrMagnitude == 0 && state == 1)
+        else if (moveDirection.sqrMagnitude == 0 && PlayerController.Instance.isEmpty)
         {
-            state = 0;
-            AnimState = "Idle";
-            Anim.CrossFade(AnimState, .1f);
+            ChangeAnimationState("Idle", 0);
+        }
+        else if (moveDirection.sqrMagnitude > 0 && !PlayerController.Instance.isEmpty)
+        {
+            ChangeAnimationState("Box Walk", 2);
+        }
+        else if (moveDirection.sqrMagnitude == 0 && !PlayerController.Instance.isEmpty)
+        {
+            ChangeAnimationState("Box Idle", 3);
+        }
+        else if (moveDirection.sqrMagnitude >= 0 && PlayerController.Instance.isEmpty && PlayerController.Instance.isThrew)
+        {
+            ChangeAnimationState("Throw", ANIMSTATE_THROW);
+            PlayerController.Instance.isThrew = false;
         }
     }
-   
+    public void ChangeAnimationState(string newState, int newStateID)
+    {
+        if (state == newStateID) return;
+
+        state = newStateID;
+        AnimState = newState;
+        Anim.CrossFade(AnimState, 0.3f);
+
+        Debug.Log($"Animation changed to: {AnimState}");
+    }
 }

@@ -12,7 +12,6 @@ public class InputHandler : MonoBehaviour
         playerInput.Player.Enable();
 
         playerInput.Player.PickUp.performed += PlayerPickUp;
-        playerInput.Player.Drop.performed += PlayerDrop;
         playerInput.Player.Throw.performed += PlayerThrow;
     }
 
@@ -24,19 +23,15 @@ public class InputHandler : MonoBehaviour
         }
     }
 
-    private void PlayerDrop(InputAction.CallbackContext context)
-    {
-        if (context.ReadValueAsButton())
-        {
-            PlayerController.Instance.HandleDropPackage();
-        }
-    }
-
     private void PlayerPickUp(InputAction.CallbackContext context)
     {
-        if (context.ReadValueAsButton())
+        if (context.ReadValueAsButton()&& PlayerController.Instance.isEmpty)
         {
             PlayerController.Instance.HandlePickUpPackage();
+        }
+        else if (context.ReadValueAsButton() && !PlayerController.Instance.isEmpty)
+        {
+            PlayerController.Instance.HandleDropPackage();
         }
     }
 

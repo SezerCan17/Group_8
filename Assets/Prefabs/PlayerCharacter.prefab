@@ -91,6 +91,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentPackage: {fileID: 0}
+  isEmpty: 1
 --- !u!1001 &8806345137980111724
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -169,7 +170,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: characterMedium
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5866666021909216657, guid: 06fc83d50ff19934e99f441b74394592, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
@@ -201,11 +203,11 @@ Animator:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3474419737617327226}
   m_Enabled: 1
-  m_Avatar: {fileID: 0}
+  m_Avatar: {fileID: 9000000, guid: 06fc83d50ff19934e99f441b74394592, type: 3}
   m_Controller: {fileID: 9100000, guid: f616a470071e66e4c8dc702602885967, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
-  m_ApplyRootMotion: 1
+  m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
   m_WarningMessage: 
@@ -240,7 +242,7 @@ MeshCollider:
   serializedVersion: 5
   m_Convex: 0
   m_CookingOptions: 30
-  m_Mesh: {fileID: 0}
+  m_Mesh: {fileID: -4910155946660035214, guid: 06fc83d50ff19934e99f441b74394592, type: 3}
 --- !u!33 &6587150309852691178
 MeshFilter:
   m_ObjectHideFlags: 0
