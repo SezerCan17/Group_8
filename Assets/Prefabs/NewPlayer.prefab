@@ -76,7 +76,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   InputHandler: {fileID: 0}
   moveSpeed: 5
-  Anim: {fileID: 0}
+  Anim: {fileID: 3362347834023289501}
   AnimState: 
 --- !u!114 &1837779354144397983
 MonoBehaviour:
@@ -92,6 +92,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentPackage: {fileID: 0}
   isEmpty: 1
+  isThrew: 0
 --- !u!1001 &9206448506779442956
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -190,6 +191,11 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -2049929814205202405, guid: 4fb2d17f7c571014784fc7f319d5b145,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 72381bb1c424a1f458597d719b436fc9, type: 2}
     - target: {fileID: 919132149155446097, guid: 4fb2d17f7c571014784fc7f319d5b145,
         type: 3}
       propertyPath: m_Name
@@ -213,6 +219,12 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 6309023379861415929}
   m_SourcePrefab: {fileID: 100100000, guid: 4fb2d17f7c571014784fc7f319d5b145, type: 3}
+--- !u!95 &3362347834023289501 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 5866666021909216657, guid: 4fb2d17f7c571014784fc7f319d5b145,
+    type: 3}
+  m_PrefabInstance: {fileID: 9206448506779442956}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &7301052473254669349 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -7308941246413180119, guid: 4fb2d17f7c571014784fc7f319d5b145,

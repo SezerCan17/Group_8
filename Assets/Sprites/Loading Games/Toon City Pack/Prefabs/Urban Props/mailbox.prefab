@@ -12,12 +12,13 @@ GameObject:
   - component: {fileID: 1531664852299747326}
   - component: {fileID: 3649435603450723124}
   - component: {fileID: 3443893157757810152}
+  - component: {fileID: 4349458331606807633}
   m_Layer: 0
   m_Name: mailbox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 40
   m_IsActive: 1
 --- !u!4 &2517031173252186203
 Transform:
@@ -103,5 +104,25 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1.16, y: 1.1465123, z: 1.83}
-  m_Center: {x: 0, y: 0.57325613, z: 0.18565999}
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0.2}
+--- !u!114 &4349458331606807633
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3000974226270739169}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6eeb5dc026fdf4b488bc7ae0138ab719, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_AgentTypeID: 0
+  m_StartPoint: {x: -1.9237823, y: -0.00000040437985, z: 0.6538677}
+  m_EndPoint: {x: 2.4959183, y: 0.00000041114836, z: 0.58336544}
+  m_Width: 0
+  m_CostModifier: -1
+  m_Bidirectional: 1
+  m_AutoUpdatePosition: 1
+  m_Area: 0

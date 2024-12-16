@@ -75,7 +75,7 @@ public class PlayerMovement : MonoBehaviour
 
         state = newStateID;
         AnimState = newState;
-        Anim.CrossFade(AnimState, 0.3f);
+        Anim.CrossFade(AnimState, 0.1f);
 
         Debug.Log($"Animation changed to: {AnimState}");
     }
