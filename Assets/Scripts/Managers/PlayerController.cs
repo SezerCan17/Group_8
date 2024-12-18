@@ -35,6 +35,7 @@ public class PlayerController : MonoBehaviour
             currentPackage = lastTouchedPackage;
             currentPackage.isPickedUp = true;
             currentPackage.GetComponent<Rigidbody>().useGravity = false;
+            currentPackage.GetComponent<Collider>().enabled = false;
             currentPackage.transform.SetParent(this.transform);
             currentPackage.transform.localPosition = new Vector3(0, 1.5f, 1f);
             isEmpty = false;
@@ -58,6 +59,7 @@ public class PlayerController : MonoBehaviour
             currentPackage.isPickedUp = false;
             currentPackage.transform.SetParent(null);
             currentPackage.GetComponent<Rigidbody>().useGravity = true;
+            currentPackage.GetComponent<Collider>().enabled = true;
             currentPackage = null;
             isEmpty = true;
 
@@ -81,12 +83,12 @@ public class PlayerController : MonoBehaviour
             isThrew = true;
             currentPackage.isPickedUp = false;
             currentPackage.transform.SetParent(null);
-            currentPackage.GetComponent<Rigidbody>().useGravity = true;
 
             Vector3 throwDirection = transform.forward;
             float throwForce = 25f;
             currentPackage.GetComponent<Rigidbody>().AddForce(throwDirection.normalized * throwForce, ForceMode.Impulse);
             currentPackage.GetComponent<Rigidbody>().useGravity = true;
+            currentPackage.GetComponent<Collider>().enabled = true;
 
             currentPackage = null;
             isEmpty = true;
