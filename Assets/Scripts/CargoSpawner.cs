@@ -48,7 +48,7 @@ public class CargoSpawner : MonoBehaviour
             {
                 Debug.Log("Adressss: " + targetPosition);
                 
-                GameObject sfxMailBox = Instantiate(sfx, new Vector3(targetPosition.x+13.7f, targetPosition.y+11.5f, targetPosition.z+28.15f), Quaternion.identity);
+                GameObject sfxMailBox = Instantiate(sfx, new Vector3(targetPosition.x, targetPosition.y, targetPosition.z), Quaternion.identity);
                 sfxMailBox.name = "SFX for " + selectedCargo.cargoName;
 
                 spawnedPoints.Add(targetPosition);
