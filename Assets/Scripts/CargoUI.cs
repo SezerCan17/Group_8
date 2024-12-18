@@ -10,8 +10,11 @@ public class CargoUI : MonoBehaviour
     [SerializeField] private TMP_Text locationType;
     [SerializeField] private TMP_Text deliveryDeadline;
     [SerializeField] private TMP_Text weight;
+    [SerializeField] private TMP_Text durability;
 
     [SerializeField] private GameObject details;
+
+    
 
     public void CargoDetails(Package cargo)
     {
@@ -22,6 +25,7 @@ public class CargoUI : MonoBehaviour
         locationType.text = cargoPackage.cargoSO.locationType.ToString();
         deliveryDeadline.text = cargoPackage.cargoSO.deliveryDeadline.ToString();
         weight.text = cargoPackage.cargoSO.weight.ToString() + " kg"; 
+        durability.text = cargoPackage.cargoSO.durability.ToString();
     }
 
     public void CloseDetails()

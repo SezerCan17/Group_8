@@ -8,6 +8,8 @@ public class PlayerController : MonoBehaviour
     private Package lastTouchedPackage;
     public static PlayerController Instance;
 
+    public CargoDurability cargoDurability;
+
     public CargoUI cargoUI;
 
     public bool isEmpty = true;
@@ -110,6 +112,7 @@ public class PlayerController : MonoBehaviour
             currentPackage.GetComponent<Rigidbody>().useGravity = true;
             currentPackage.GetComponent<Collider>().enabled = true;
             cargoUI.CloseDetails();
+            cargoDurability.CalculateDurability(currentPackage);
 
             currentPackage = null;
             isEmpty = true;
