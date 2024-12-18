@@ -8,8 +8,14 @@ public class PlayerController : MonoBehaviour
     private Package lastTouchedPackage;
     public static PlayerController Instance;
 
+    public CargoUI cargoUI;
+
     public bool isEmpty = true;
     public bool isThrew = false;
+
+    public bool isDetails = false;
+
+    
 
     private void Awake()
     {
@@ -39,6 +45,7 @@ public class PlayerController : MonoBehaviour
             currentPackage.transform.SetParent(this.transform);
             currentPackage.transform.localPosition = new Vector3(0, 1.5f, 1f);
             isEmpty = false;
+            
 
             Debug.Log("Picked up package: " + currentPackage.name);
 
@@ -62,9 +69,22 @@ public class PlayerController : MonoBehaviour
             currentPackage.GetComponent<Collider>().enabled = true;
             currentPackage = null;
             isEmpty = true;
+            cargoUI.CloseDetails();
 
             Debug.Log("Dropped package.");
         }
+    }
+
+    public void OpenCargoDetails()
+    {
+        isDetails = true;
+        cargoUI.CargoDetails(currentPackage);
+    }
+
+    public void CloseCargoDetails()
+    {
+        isDetails = false;
+        cargoUI.CloseDetails();
     }
     void CheckDistance()
     {
@@ -89,6 +109,7 @@ public class PlayerController : MonoBehaviour
             currentPackage.GetComponent<Rigidbody>().AddForce(throwDirection.normalized * throwForce, ForceMode.Impulse);
             currentPackage.GetComponent<Rigidbody>().useGravity = true;
             currentPackage.GetComponent<Collider>().enabled = true;
+            cargoUI.CloseDetails();
 
             currentPackage = null;
             isEmpty = true;

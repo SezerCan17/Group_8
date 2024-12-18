@@ -1,0 +1,33 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
+
+public class CargoUI : MonoBehaviour
+{
+    [SerializeField] private TMP_Text cargoType;
+    [SerializeField] private TMP_Text locationType;
+    [SerializeField] private TMP_Text deliveryDeadline;
+    [SerializeField] private TMP_Text weight;
+
+    [SerializeField] private GameObject details;
+
+    public void CargoDetails(Package cargo)
+    {
+        details.SetActive(true);
+
+        Package cargoPackage = cargo.gameObject.GetComponent<Package>();
+        cargoType.text = cargoPackage.cargoSO.cargoType.ToString();
+        locationType.text = cargoPackage.cargoSO.locationType.ToString();
+        deliveryDeadline.text = cargoPackage.cargoSO.deliveryDeadline.ToString();
+        weight.text = cargoPackage.cargoSO.weight.ToString() + " kg"; 
+    }
+
+    public void CloseDetails()
+    {
+        details.SetActive(false);
+    }
+
+    
+}

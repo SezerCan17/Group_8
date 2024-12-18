@@ -53,6 +53,15 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Details"",
+                    ""type"": ""Button"",
+                    ""id"": ""cdc28055-a4bb-41ed-830d-9c7ba6ae9edb"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -132,6 +141,17 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""action"": ""Throw"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""c3d5c0b8-54a6-4025-a589-8b9c1e3fbf68"",
+                    ""path"": ""<Keyboard>/l"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""Details"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -149,6 +169,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         m_Player_Move = m_Player.FindAction("Move", throwIfNotFound: true);
         m_Player_PickUp = m_Player.FindAction("Pick Up", throwIfNotFound: true);
         m_Player_Throw = m_Player.FindAction("Throw", throwIfNotFound: true);
+        m_Player_Details = m_Player.FindAction("Details", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -213,6 +234,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Move;
     private readonly InputAction m_Player_PickUp;
     private readonly InputAction m_Player_Throw;
+    private readonly InputAction m_Player_Details;
     public struct PlayerActions
     {
         private @PlayerInput m_Wrapper;
@@ -220,6 +242,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         public InputAction @Move => m_Wrapper.m_Player_Move;
         public InputAction @PickUp => m_Wrapper.m_Player_PickUp;
         public InputAction @Throw => m_Wrapper.m_Player_Throw;
+        public InputAction @Details => m_Wrapper.m_Player_Details;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -238,6 +261,9 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
             @Throw.started += instance.OnThrow;
             @Throw.performed += instance.OnThrow;
             @Throw.canceled += instance.OnThrow;
+            @Details.started += instance.OnDetails;
+            @Details.performed += instance.OnDetails;
+            @Details.canceled += instance.OnDetails;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -251,6 +277,9 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
             @Throw.started -= instance.OnThrow;
             @Throw.performed -= instance.OnThrow;
             @Throw.canceled -= instance.OnThrow;
+            @Details.started -= instance.OnDetails;
+            @Details.performed -= instance.OnDetails;
+            @Details.canceled -= instance.OnDetails;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -282,5 +311,6 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         void OnMove(InputAction.CallbackContext context);
         void OnPickUp(InputAction.CallbackContext context);
         void OnThrow(InputAction.CallbackContext context);
+        void OnDetails(InputAction.CallbackContext context);
     }
 }

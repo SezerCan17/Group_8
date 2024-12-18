@@ -13,6 +13,7 @@ public class InputHandler : MonoBehaviour
 
         playerInput.Player.PickUp.performed += PlayerPickUp;
         playerInput.Player.Throw.performed += PlayerThrow;
+        playerInput.Player.Details.performed += PlayerDetails;
     }
 
     private void PlayerThrow(InputAction.CallbackContext context)
@@ -32,6 +33,18 @@ public class InputHandler : MonoBehaviour
         else if (context.ReadValueAsButton() && !PlayerController.Instance.isEmpty)
         {
             PlayerController.Instance.HandleDropPackage();
+        }
+    }
+
+    private void PlayerDetails(InputAction.CallbackContext context)
+    {
+        if (context.ReadValueAsButton()&& !PlayerController.Instance.isDetails &&  !PlayerController.Instance.isEmpty)
+        {
+            PlayerController.Instance.OpenCargoDetails();
+        }
+        else if (context.ReadValueAsButton() && PlayerController.Instance.isDetails &&  !PlayerController.Instance.isEmpty)
+        {
+            PlayerController.Instance.CloseCargoDetails();
         }
     }
 
