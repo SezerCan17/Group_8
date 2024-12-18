@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 3087335969370785981}
   m_Layer: 0
   m_Name: box-medium
-  m_TagString: Untagged
+  m_TagString: cargo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

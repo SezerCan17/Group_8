@@ -3,19 +3,26 @@ using UnityEngine;
 
 public class DeliveryZone : MonoBehaviour
 {
-    public LocationSO locationData;
+    //public LocationSO locationData;
+    public DeliveryManager deliveryManager;
 
-    bool flag=false;
+    private void OnTriggerEnter(Collider other) {
+  if (other.gameObject.tag == "cargo")
+      {
+        bool flag = deliveryManager.ControlDelivery(gameObject);
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if(other.tag == "cargo")
+        if (flag)
         {
-          if(flag == true  )
-          {
-            //if(gameObject.transform.position == other.)
+          other.gameObject.SetActive(false);
 
-          } 
         }
-    }
+
+        
+      }
 }
+
+    
+
+}
+
+

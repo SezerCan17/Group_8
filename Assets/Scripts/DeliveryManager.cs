@@ -5,18 +5,35 @@ public class DeliveryManager : MonoBehaviour
 {
     public CargoSpawner cargoSpawner;
     public Mailboxs mailboxs;
-   public void ControlDelivery()
+
+    public float distanceThreshold = 0.5f;
+
+
+    
+   public bool ControlDelivery(GameObject mailbox)
    {
-     for(int i = 0;i<=mailboxs.mailBox.Length;i++)
-     {
-        for(int j=0;j<=cargoSpawner.spawnPoint.Length;j++)
+    Debug.Log(cargoSpawner.spawnPoint.Length + " Tane kargo var bra" );
+      for (int j = 0; j < cargoSpawner.spawnPoint.Length; j++)
         {
-            if(cargoSpawner.spawnPoint[j]==mailboxs.mailBox[i])
+           Vector3 adjustedPosition = new Vector3(
+            mailbox.transform.position.x ,
+            mailbox.transform.position.y,
+            mailbox.transform.position.z
+        );
+            // İki pozisyon arasındaki mesafeyi hesapla
+            float distance = Vector3.Distance(cargoSpawner.spawnPoint[j].position, adjustedPosition);
+
+            if (distance <= distanceThreshold)
             {
+                Debug.Log("Doğru adres");
+                // Doğru adres için ek işlem yapabilirsiniz
+                break;
                 
             }
         }
-     }
+
+        //Debug.Log("Yanlış adres");
+        return true;
 
    }
 }
