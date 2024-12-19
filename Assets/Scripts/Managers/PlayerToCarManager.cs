@@ -64,6 +64,11 @@ public class PlayerToCarManager : MonoBehaviour
             {
                 DoTheTransition();
             }
+            else if(!isPlayerControlling)
+            {
+                DoTheTransition();
+            }
+                
         }
     }
 
