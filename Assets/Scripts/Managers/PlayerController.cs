@@ -13,7 +13,6 @@ public class PlayerController : MonoBehaviour
     public CargoUI cargoUI;
 
     public bool isEmpty = true;
-    public bool isThrew = false;
 
     public bool isDetails = false;
 
@@ -102,20 +101,21 @@ public class PlayerController : MonoBehaviour
     {
         if (currentPackage != null)
         {
-            isThrew = true;
-            currentPackage.isPickedUp = false;
-            currentPackage.transform.SetParent(null);
-
+            isEmpty = true;
             Vector3 throwDirection = transform.forward;
             float throwForce = 25f;
             currentPackage.GetComponent<Rigidbody>().AddForce(throwDirection.normalized * throwForce, ForceMode.Impulse);
             currentPackage.GetComponent<Rigidbody>().useGravity = true;
             currentPackage.GetComponent<Collider>().enabled = true;
+
             cargoUI.CloseDetails();
             cargoDurability.CalculateDurability(currentPackage);
 
+            GetComponent<PlayerMovement>().ChangeAnimationState("Idle", 0);
+            currentPackage.isPickedUp = false;
+            currentPackage.transform.SetParent(null);
             currentPackage = null;
-            isEmpty = true;
+
             Debug.Log("Threw package.");
         }
     }
