@@ -4,7 +4,7 @@ using UnityEngine;
 public class CargoBranch : MonoBehaviour
 {
     public RandomCargoGenerator cargoGenerator;
-    public int cargoCount = 5; // Her şube için oluşturulacak kargo sayısı
+    public int cargoCount = 5; 
     private List<CargoSO> cargoList = new List<CargoSO>();
 
     private void Start()

@@ -5,7 +5,8 @@ using TMPro;
 public class UIManager : MonoBehaviour
 {
     [SerializeField] private Image satisfactionBarImage; 
-    [SerializeField] private TMP_Text deneme;
+    [SerializeField] private TMP_Text coinText;
+    
     
 
     public void SatisfactionBar(int satisfaction)
@@ -13,8 +14,10 @@ public class UIManager : MonoBehaviour
         
         float fillAmount = Mathf.Clamp01(satisfaction / 100f);
         satisfactionBarImage.fillAmount = fillAmount;
+    }
 
-        deneme.text = satisfaction.ToString();
-
+    public void CoinUIText(int coin)
+    {
+        coinText.text = coin.ToString();
     }
 }

@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI; 
-using TMPro; 
+using TMPro;
+using System;
 
 public class Timer : MonoBehaviour
 {
@@ -48,4 +49,6 @@ public class Timer : MonoBehaviour
         elapsedTime = 0f;
         uiText.text = FormatTime(elapsedTime);
     }
+
+    
 }
