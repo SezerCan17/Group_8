@@ -8,6 +8,7 @@ public class DeliveryZone : MonoBehaviour
     
     public DeliveryManager deliveryManager;
 
+
     private void OnTriggerEnter(Collider other) 
     {
         if (other.gameObject.tag == "cargo")
