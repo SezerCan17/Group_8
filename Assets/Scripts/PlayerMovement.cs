@@ -21,7 +21,6 @@ public class PlayerMovement : MonoBehaviour
     const int ANIMSTATE_WALK = 1;
     const int ANIMSTATE_BOX_WALK = 2;
     const int ANIMSTATE_BOX_IDLE = 3;
-    const int ANIMSTATE_THROW = 4;
 
 
     private void Awake()
@@ -63,13 +62,8 @@ public class PlayerMovement : MonoBehaviour
         {
             ChangeAnimationState("Box Idle", 3);
         }
-        else if (moveDirection.sqrMagnitude >= 0 && PlayerController.Instance.isEmpty && PlayerController.Instance.isThrew)
-        {
-            ChangeAnimationState("Throw", ANIMSTATE_THROW);
-            PlayerController.Instance.isThrew = false;
-        }
     }
-    public void ChangeAnimationState(string newState, int newStateID)
+    public void ChangeAnimationState(string newState, int newStateID = 0)
     {
         if (state == newStateID) return;
 

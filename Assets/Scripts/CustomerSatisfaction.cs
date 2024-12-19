@@ -4,7 +4,10 @@ using UnityEngine;
 
 public class CustomerSatisfaction : MonoBehaviour
 {
+
+    public UIManager uIManager;
     public int satisfaction = 100;
+    public int govermentSatisfaction = 100;
     public void CalculateSatisfactionPlus(int n)
     {
         satisfaction+=n;
@@ -12,6 +15,7 @@ public class CustomerSatisfaction : MonoBehaviour
         {
             satisfaction=100;
         }
+        uIManager.SatisfactionBar(satisfaction);
     }
 
     public void CalculateSatisfactionMinus(int n)
@@ -21,9 +25,29 @@ public class CustomerSatisfaction : MonoBehaviour
         {
             satisfaction=0;
         }
-
-
+        uIManager.SatisfactionBar(satisfaction);
     }
+
+    public void CalculateGovermentSatisfactionMinus(int n)
+    {
+        govermentSatisfaction-=n;
+        if(govermentSatisfaction<=0)
+        {
+            govermentSatisfaction=0;
+        }
+        uIManager.GovermentSatisfactionBar(govermentSatisfaction);
+    }
+
+    public void CalculateGovermentSatisfactionPlus(int n)
+    {
+        govermentSatisfaction+=n;
+        if(govermentSatisfaction >= 100)
+        {
+            govermentSatisfaction=100;
+        }
+        uIManager.GovermentSatisfactionBar(govermentSatisfaction);
+    }
+
 
 
 }
