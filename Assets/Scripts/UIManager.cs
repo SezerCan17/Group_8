@@ -12,6 +12,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private Image securityandHealthBarImage;
 
     [SerializeField] private Image govermentSatisfactionBarImage;
+    [SerializeField] public GameObject market;
     
     
 
@@ -46,6 +47,13 @@ public class UIManager : MonoBehaviour
         
         float fillAmount = Mathf.Clamp01(securityandHealth / 100f);
         securityandHealthBarImage.fillAmount = fillAmount;
+    }
+
+
+    public void Market()
+    {
+        market.SetActive(true);
+        Debug.Log("Market");
     }
 
 

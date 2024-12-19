@@ -11,6 +11,7 @@ public class DeliveryManager : MonoBehaviour
     LocationType locationType;
     public float distanceThreshold = 0.5f;
     public CargoControlManager cargoControlManager;
+    public GameManager gameManager;
 
     
 
@@ -35,7 +36,15 @@ public class DeliveryManager : MonoBehaviour
             if (distance <= distanceThreshold)
             {
                 Debug.Log("Doğru teslimat adresi!");
+                
                 cargoControlManager.CargoCheck(cargoPackage,timer.elapsedTime);
+                locationSO.predefinedCoordinates.Remove(locationType);
+                if(locationSO.predefinedCoordinates.Count == 0)
+                {
+                    gameManager.EndDay();
+                    Debug.Log("Tüm kargolar teslim edildi!");
+                    
+                }
                 return true;
             }
         }

@@ -7,6 +7,7 @@ public class CargoLocationControlManager : MonoBehaviour
     public EconomyController economyController;
     public CustomerSatisfaction customerSatisfaction;
     public SecurityandHealthManager securityandHealthManager;
+    public GameObject lights;
     public void HandleLocation(LocationType locationType, bool onTime)
 {
     if (locationType.ToString().Contains("Apartment"))
@@ -157,15 +158,15 @@ public class CargoLocationControlManager : MonoBehaviour
         {
             economyController.EconomyCalculatePlus(10);
             customerSatisfaction.CalculateGovermentSatisfactionPlus(10);
+            lights.SetActive(true);
             
 
         }
         else
         {
-            
+            lights.SetActive(true);
             customerSatisfaction.CalculateGovermentSatisfactionMinus(20);
             
-
         }
         Debug.Log("Bu bir elektrik santrali.");
     }
