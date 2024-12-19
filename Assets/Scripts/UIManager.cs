@@ -6,6 +6,8 @@ public class UIManager : MonoBehaviour
 {
     [SerializeField] private Image satisfactionBarImage; 
     [SerializeField] private TMP_Text coinText;
+
+    [SerializeField] private Image economyBarImage;
     
     
 
@@ -20,4 +22,14 @@ public class UIManager : MonoBehaviour
     {
         coinText.text = coin.ToString();
     }
+
+    public void EconomyBar(int economy)
+    {
+        
+        float fillAmount = Mathf.Clamp01(economy / 100f);
+        economyBarImage.fillAmount = fillAmount;
+    }
+
+
+
 }

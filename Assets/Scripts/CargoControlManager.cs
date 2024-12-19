@@ -7,6 +7,9 @@ public class CargoControlManager : MonoBehaviour
 {
     public CustomerSatisfaction customerSatisfaction;
     public CoinManager coinManager;
+    public bool onTime;
+
+    public CargoLocationControlManager cargoLocationControlManager;
     public void CargoCheck(Package cargo, float time)
     {
         switch (cargo.cargoSO.cargoType)
@@ -15,23 +18,27 @@ public class CargoControlManager : MonoBehaviour
                 Debug.Log("Kargo türü: Giyim");
                 if(cargo.cargoSO.durability==100)
                 {
+                    
                     customerSatisfaction.CalculateSatisfactionPlus(8);
                     coinManager.CoinCalculatePlus(100);
                 }
                 else if(cargo.cargoSO.durability<100 && cargo.cargoSO.durability >=80)
                 {
+                    
                     customerSatisfaction.CalculateSatisfactionMinus(5);
                     coinManager.CoinCalculatePlus(100);
 
                 }
                 else if(cargo.cargoSO.durability<80 && cargo.cargoSO.durability>=50)
                 {
+                    
                     customerSatisfaction.CalculateSatisfactionMinus(10);
                     coinManager.CoinCalculatePlus(100);
 
                 }
                 else
                 {
+                   
                     customerSatisfaction.CalculateSatisfactionMinus(15);
                     coinManager.CoinCalculatePlus(100);
 
@@ -39,14 +46,15 @@ public class CargoControlManager : MonoBehaviour
 
                 if((int)time <= cargo.cargoSO.deliveryDeadline)
                 {
+                    onTime = true;
                     customerSatisfaction.CalculateSatisfactionPlus(8);
                     
 
                 }
                 else{
+                    onTime = false;
                     customerSatisfaction.CalculateSatisfactionMinus(10);
-                    
-
+                    cargoLocationControlManager.HandleLocation(cargo.cargoSO.locationType,onTime);
                 }
                 break;
 
@@ -71,13 +79,16 @@ public class CargoControlManager : MonoBehaviour
                 }
                  if((int)time <= cargo.cargoSO.deliveryDeadline)
                 {
+                    onTime = true;
                     customerSatisfaction.CalculateSatisfactionPlus(13);
                     
                     
 
                 }
                 else{
+                    onTime = false;
                     customerSatisfaction.CalculateSatisfactionMinus(35);
+                    cargoLocationControlManager.HandleLocation(cargo.cargoSO.locationType,onTime);
                     
 
                 }
@@ -111,12 +122,15 @@ public class CargoControlManager : MonoBehaviour
                 }
                  if((int)time <= cargo.cargoSO.deliveryDeadline)
                 {
+                    onTime = true;
                     customerSatisfaction.CalculateSatisfactionPlus(8);
                     
 
                 }
                 else{
+                    onTime = false;
                     customerSatisfaction.CalculateSatisfactionMinus(10);
+                    cargoLocationControlManager.HandleLocation(cargo.cargoSO.locationType,onTime);
                     
 
                 }
@@ -149,12 +163,15 @@ public class CargoControlManager : MonoBehaviour
                 }
                  if((int)time <= cargo.cargoSO.deliveryDeadline)
                 {
+                    onTime = true;
                     customerSatisfaction.CalculateSatisfactionPlus(8);
                     
 
                 }
                 else{
+                    onTime = false;
                     customerSatisfaction.CalculateSatisfactionMinus(10);
+                    cargoLocationControlManager.HandleLocation(cargo.cargoSO.locationType,onTime);
                     
 
                 }
@@ -187,11 +204,14 @@ public class CargoControlManager : MonoBehaviour
                 }
                  if((int)time <= cargo.cargoSO.deliveryDeadline)
                 {
+                    onTime = true;
                     customerSatisfaction.CalculateSatisfactionPlus(8);
 
                 }
                 else{
+                    onTime = false;
                     customerSatisfaction.CalculateSatisfactionMinus(10);
+                    cargoLocationControlManager.HandleLocation(cargo.cargoSO.locationType,onTime);
 
                 }break;
 
@@ -222,11 +242,14 @@ public class CargoControlManager : MonoBehaviour
                 }
                  if((int)time <= cargo.cargoSO.deliveryDeadline)
                 {
+                    onTime = true;
                     customerSatisfaction.CalculateSatisfactionPlus(8);
 
                 }
                 else{
-                    customerSatisfaction.CalculateSatisfactionMinus(280);
+                    onTime = false;
+                    customerSatisfaction.CalculateSatisfactionMinus(28);
+                    cargoLocationControlManager.HandleLocation(cargo.cargoSO.locationType,onTime);
 
                 }
                 break;
