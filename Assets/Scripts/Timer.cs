@@ -1,13 +1,14 @@
 using UnityEngine;
 using UnityEngine.UI; 
-using TMPro; 
+using TMPro;
+using System;
 
 public class Timer : MonoBehaviour
 {
     public TMP_Text uiText; 
     
 
-    private float elapsedTime = 0f; 
+    public float elapsedTime = 0f; 
     private bool isTimerRunning = true; 
 
     void Update()
@@ -48,4 +49,6 @@ public class Timer : MonoBehaviour
         elapsedTime = 0f;
         uiText.text = FormatTime(elapsedTime);
     }
+
+    
 }

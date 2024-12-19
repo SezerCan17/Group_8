@@ -4,14 +4,20 @@ using TMPro;
 
 public class UIManager : MonoBehaviour
 {
-    [SerializeField] private Image satisfactionBarImage; // Doluluk barı için image
+    [SerializeField] private Image satisfactionBarImage; 
+    [SerializeField] private TMP_Text coinText;
+    
     
 
     public void SatisfactionBar(int satisfaction)
     {
-        // Doluluk oranını hesapla (0 ile 1 arasında olmalı)
+        
         float fillAmount = Mathf.Clamp01(satisfaction / 100f);
         satisfactionBarImage.fillAmount = fillAmount;
+    }
 
+    public void CoinUIText(int coin)
+    {
+        coinText.text = coin.ToString();
     }
 }

@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class CustomerSatisfaction : MonoBehaviour
 {
+
+    public UIManager uIManager;
     public int satisfaction = 100;
     public void CalculateSatisfactionPlus(int n)
     {
@@ -12,6 +14,7 @@ public class CustomerSatisfaction : MonoBehaviour
         {
             satisfaction=100;
         }
+        uIManager.SatisfactionBar(satisfaction);
     }
 
     public void CalculateSatisfactionMinus(int n)
@@ -21,6 +24,7 @@ public class CustomerSatisfaction : MonoBehaviour
         {
             satisfaction=0;
         }
+        uIManager.SatisfactionBar(satisfaction);
 
 
     }
