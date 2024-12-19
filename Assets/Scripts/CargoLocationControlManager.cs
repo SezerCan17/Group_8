@@ -5,11 +5,21 @@ using UnityEngine;
 public class CargoLocationControlManager : MonoBehaviour
 {
     public EconomyController economyController;
+    public CustomerSatisfaction customerSatisfaction;
+    public SecurityandHealthManager securityandHealthManager;
     public void HandleLocation(LocationType locationType, bool onTime)
 {
     if (locationType.ToString().Contains("Apartment"))
     {
-        
+        if(onTime)
+        {
+            customerSatisfaction.CalculateGovermentSatisfactionPlus(10);
+
+        }
+        else
+        {
+            
+        }
         Debug.Log("Bu bir apartman.");
     }
     else if (locationType.ToString().Contains("Pizza"))
@@ -17,11 +27,13 @@ public class CargoLocationControlManager : MonoBehaviour
         if(onTime)
         {
             economyController.EconomyCalculatePlus(10);
+            customerSatisfaction.CalculateGovermentSatisfactionPlus(10);
 
         }
         else
         {
             economyController.EconomyCalculateMinus(10);
+            customerSatisfaction.CalculateGovermentSatisfactionMinus(20);
 
         }
         Debug.Log("Bu bir pizzacı.");
@@ -31,11 +43,13 @@ public class CargoLocationControlManager : MonoBehaviour
         if(onTime)
         {
             economyController.EconomyCalculatePlus(10);
+            customerSatisfaction.CalculateGovermentSatisfactionPlus(10);
 
         }
         else
         {
             economyController.EconomyCalculateMinus(10);
+            customerSatisfaction.CalculateGovermentSatisfactionMinus(20);
 
         }
         Debug.Log("Bu bir dondurma dükkanı.");
@@ -45,11 +59,13 @@ public class CargoLocationControlManager : MonoBehaviour
         if(onTime)
         {
             economyController.EconomyCalculatePlus(10);
+            customerSatisfaction.CalculateGovermentSatisfactionPlus(10);
 
         }
         else
         {
             economyController.EconomyCalculateMinus(10);
+            customerSatisfaction.CalculateGovermentSatisfactionMinus(20);
 
         }
         Debug.Log("Bu bir burger dükkanı.");
@@ -59,11 +75,13 @@ public class CargoLocationControlManager : MonoBehaviour
         if(onTime)
         {
             economyController.EconomyCalculatePlus(10);
+            customerSatisfaction.CalculateGovermentSatisfactionPlus(10);
 
         }
         else
         {
             economyController.EconomyCalculateMinus(10);
+            customerSatisfaction.CalculateGovermentSatisfactionMinus(20);
 
         }
         Debug.Log("Bu bir kahve dükkanı.");
@@ -73,11 +91,13 @@ public class CargoLocationControlManager : MonoBehaviour
         if(onTime)
         {
             economyController.EconomyCalculatePlus(10);
+            customerSatisfaction.CalculateGovermentSatisfactionPlus(10);
 
         }
         else
         {
             economyController.EconomyCalculateMinus(10);
+            customerSatisfaction.CalculateGovermentSatisfactionMinus(20);
 
         }
         Debug.Log("Bu bir sosis standı.");
@@ -87,11 +107,14 @@ public class CargoLocationControlManager : MonoBehaviour
         if(onTime)
         {
             economyController.EconomyCalculatePlus(10);
+            customerSatisfaction.CalculateGovermentSatisfactionPlus(10);
+            
 
         }
         else
         {
             economyController.EconomyCalculateMinus(10);
+            customerSatisfaction.CalculateGovermentSatisfactionMinus(20);
 
         }
         Debug.Log("Bu bir limonata dükkanı.");
@@ -101,11 +124,13 @@ public class CargoLocationControlManager : MonoBehaviour
         if(onTime)
         {
             economyController.EconomyCalculatePlus(10);
+            customerSatisfaction.CalculateGovermentSatisfactionPlus(10);
 
         }
         else
         {
             economyController.EconomyCalculateMinus(10);
+            customerSatisfaction.CalculateGovermentSatisfactionMinus(20);
 
         }
         Debug.Log("Bu bir depo.");
@@ -115,11 +140,13 @@ public class CargoLocationControlManager : MonoBehaviour
         if(onTime)
         {
             economyController.EconomyCalculatePlus(10);
+            customerSatisfaction.CalculateGovermentSatisfactionPlus(10);
 
         }
         else
         {
             economyController.EconomyCalculateMinus(10);
+            customerSatisfaction.CalculateGovermentSatisfactionMinus(20);
 
         }
         Debug.Log("Bu bir inşaat.");
@@ -129,11 +156,15 @@ public class CargoLocationControlManager : MonoBehaviour
         if(onTime)
         {
             economyController.EconomyCalculatePlus(10);
+            customerSatisfaction.CalculateGovermentSatisfactionPlus(10);
+            
 
         }
         else
         {
-            economyController.EconomyCalculateMinus(10);
+            
+            customerSatisfaction.CalculateGovermentSatisfactionMinus(20);
+            
 
         }
         Debug.Log("Bu bir elektrik santrali.");
@@ -143,11 +174,14 @@ public class CargoLocationControlManager : MonoBehaviour
         if(onTime)
         {
             economyController.EconomyCalculatePlus(10);
+            customerSatisfaction.CalculateGovermentSatisfactionPlus(10);
+            
 
         }
         else
         {
-            economyController.EconomyCalculateMinus(10);
+            
+            customerSatisfaction.CalculateGovermentSatisfactionMinus(20);
 
         }
         Debug.Log("Bu bir endüstri bölgesi.");
@@ -157,11 +191,14 @@ public class CargoLocationControlManager : MonoBehaviour
         if(onTime)
         {
             economyController.EconomyCalculatePlus(10);
+            customerSatisfaction.CalculateGovermentSatisfactionPlus(10);
+            
 
         }
         else
         {
-            economyController.EconomyCalculateMinus(10);
+            
+            customerSatisfaction.CalculateGovermentSatisfactionMinus(20);
 
         }
         Debug.Log("Bu bir doğalgaz santrali.");
@@ -171,42 +208,97 @@ public class CargoLocationControlManager : MonoBehaviour
         if(onTime)
         {
             economyController.EconomyCalculatePlus(10);
+            customerSatisfaction.CalculateGovermentSatisfactionPlus(10);
+            
 
         }
         else
         {
-            economyController.EconomyCalculateMinus(10);
+            
+            customerSatisfaction.CalculateGovermentSatisfactionMinus(20);
 
         }
         Debug.Log("Bu bir otel.");
     }
     else if (locationType.ToString().Contains("Church"))
     {
+        if(onTime)
+        {
+            
+            customerSatisfaction.CalculateGovermentSatisfactionPlus(10);
+            
+
+        }
+        else
+        {
+            
+            customerSatisfaction.CalculateGovermentSatisfactionMinus(20);
+
+        }
 
         Debug.Log("Bu bir kilise.");
     }
     else if (locationType.ToString().Contains("TennisCourt"))
     {
+        if(onTime)
+        {
+            economyController.EconomyCalculatePlus(10);
+            customerSatisfaction.CalculateGovermentSatisfactionPlus(10);
+
+        }
+        else
+        {
+            economyController.EconomyCalculateMinus(10);
+            customerSatisfaction.CalculateGovermentSatisfactionMinus(20);
+
+        }
         Debug.Log("Bu bir tenis kortu.");
     }
     else if (locationType == LocationType.PoliceOffice)
     {
+        if(onTime)
+        {
+            securityandHealthManager.CalculateSecurityandHealthPlus(10);
+            customerSatisfaction.CalculateGovermentSatisfactionPlus(10);
+          
+
+        }
+        else
+        {
+            securityandHealthManager.CalculateSecurityandHealthMinus(10);
+            customerSatisfaction.CalculateGovermentSatisfactionMinus(20);
+
+        }
         Debug.Log("Bu bir polis ofisi.");
     }
     else if (locationType == LocationType.Hospital)
     {
+        if(onTime)
+        {
+            securityandHealthManager.CalculateSecurityandHealthPlus(10);
+            customerSatisfaction.CalculateGovermentSatisfactionPlus(10);
+
+        }
+        else
+        {
+            securityandHealthManager.CalculateSecurityandHealthMinus(10);
+            customerSatisfaction.CalculateGovermentSatisfactionMinus(20);
+
+        }
         Debug.Log("Bu bir hastane.");
     }
     else if (locationType == LocationType.FireStation)
     {
         if(onTime)
         {
-            economyController.EconomyCalculatePlus(10);
+            securityandHealthManager.CalculateSecurityandHealthPlus(10);
+            customerSatisfaction.CalculateGovermentSatisfactionPlus(10);
 
         }
         else
         {
-            economyController.EconomyCalculateMinus(10);
+            securityandHealthManager.CalculateSecurityandHealthMinus(10);
+            customerSatisfaction.CalculateGovermentSatisfactionMinus(20);
 
         }
         Debug.Log("Bu bir itfaiye istasyonu.");
@@ -216,11 +308,13 @@ public class CargoLocationControlManager : MonoBehaviour
         if(onTime)
         {
             economyController.EconomyCalculatePlus(10);
+            customerSatisfaction.CalculateGovermentSatisfactionPlus(10);
 
         }
         else
         {
             economyController.EconomyCalculateMinus(10);
+            customerSatisfaction.CalculateGovermentSatisfactionMinus(20);
 
         }
         Debug.Log("Bu bir tren istasyonu.");
@@ -230,11 +324,13 @@ public class CargoLocationControlManager : MonoBehaviour
         if(onTime)
         {
             economyController.EconomyCalculatePlus(10);
+            customerSatisfaction.CalculateGovermentSatisfactionPlus(10);
 
         }
         else
         {
             economyController.EconomyCalculateMinus(10);
+            customerSatisfaction.CalculateGovermentSatisfactionMinus(20);
 
         }
         Debug.Log("Bu bir banka.");
@@ -244,11 +340,13 @@ public class CargoLocationControlManager : MonoBehaviour
         if(onTime)
         {
             economyController.EconomyCalculatePlus(10);
+            customerSatisfaction.CalculateGovermentSatisfactionPlus(10);
 
         }
         else
         {
             economyController.EconomyCalculateMinus(10);
+            customerSatisfaction.CalculateGovermentSatisfactionMinus(20);
 
         }
         Debug.Log("Bu bir benzin istasyonu.");
@@ -258,11 +356,13 @@ public class CargoLocationControlManager : MonoBehaviour
         if(onTime)
         {
             economyController.EconomyCalculatePlus(10);
+            customerSatisfaction.CalculateGovermentSatisfactionPlus(10);
 
         }
         else
         {
             economyController.EconomyCalculateMinus(10);
+            customerSatisfaction.CalculateGovermentSatisfactionMinus(20);
 
         }
         Debug.Log("Bu bir müze.");

@@ -8,6 +8,10 @@ public class UIManager : MonoBehaviour
     [SerializeField] private TMP_Text coinText;
 
     [SerializeField] private Image economyBarImage;
+
+    [SerializeField] private Image securityandHealthBarImage;
+
+    [SerializeField] private Image govermentSatisfactionBarImage;
     
     
 
@@ -16,6 +20,13 @@ public class UIManager : MonoBehaviour
         
         float fillAmount = Mathf.Clamp01(satisfaction / 100f);
         satisfactionBarImage.fillAmount = fillAmount;
+    }
+
+    public void GovermentSatisfactionBar(int satisfaction)
+    {
+        
+        float fillAmount = Mathf.Clamp01(satisfaction / 100f);
+        govermentSatisfactionBarImage.fillAmount = fillAmount;
     }
 
     public void CoinUIText(int coin)
@@ -28,6 +39,13 @@ public class UIManager : MonoBehaviour
         
         float fillAmount = Mathf.Clamp01(economy / 100f);
         economyBarImage.fillAmount = fillAmount;
+    }
+
+    public void SecurityandHealthBar(int securityandHealth)
+    {
+        
+        float fillAmount = Mathf.Clamp01(securityandHealth / 100f);
+        securityandHealthBarImage.fillAmount = fillAmount;
     }
 
 
