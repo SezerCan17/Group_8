@@ -9,15 +9,14 @@ public class PlayerController : MonoBehaviour
     public static PlayerController Instance;
 
     public CargoDurability cargoDurability;
-
     public CargoUI cargoUI;
 
     public bool isEmpty = true;
     public bool isThrew = false;
-
     public bool isDetails = false;
 
-    
+    public CargoToCarManager cargoToCarManager;
+    public float trunkInteractionDistance = 3.0f; // Distance within which the player can place cargo in the trunk
 
     private void Awake()
     {
@@ -47,33 +46,51 @@ public class PlayerController : MonoBehaviour
             currentPackage.transform.SetParent(this.transform);
             currentPackage.transform.localPosition = new Vector3(0, 1.5f, 1f);
             isEmpty = false;
-            
 
             Debug.Log("Picked up package: " + currentPackage.name);
-
             Debug.Log("Package Weight: " + currentPackage.cargoSO.weight);
             Debug.Log("Package Type: " + currentPackage.cargoSO.cargoName);
             Debug.Log("Package Size: " + currentPackage.cargoSO.weight);
-
-
         }
         else
+        {
             Debug.Log("Distance is so big");
+        }
     }
 
     public void HandleDropPackage()
     {
         if (currentPackage != null)
         {
-            currentPackage.isPickedUp = false;
-            currentPackage.transform.SetParent(null);
-            currentPackage.GetComponent<Rigidbody>().useGravity = true;
-            currentPackage.GetComponent<Collider>().enabled = true;
-            currentPackage = null;
-            isEmpty = true;
-            cargoUI.CloseDetails();
+            // Check if player is near the car's trunk
+            if (cargoToCarManager != null && Vector3.Distance(transform.position, cargoToCarManager.trunkLocation.position) <= trunkInteractionDistance)
+            {
+                // Place the cargo in the car's trunk
+                currentPackage.isPickedUp = false;
+                currentPackage.transform.SetParent(cargoToCarManager.trunkLocation);
+                currentPackage.transform.localPosition = Vector3.zero;
+                currentPackage.GetComponent<Rigidbody>().useGravity = false;
+                currentPackage.GetComponent<Collider>().enabled = true;
+                currentPackage = null;
+                currentPackage.GetComponent<Rigidbody>().isKinematic = true;
+                isEmpty = true;
+                cargoUI.CloseDetails();
 
-            Debug.Log("Dropped package.");
+                Debug.Log("Placed package in the car's trunk.");
+            }
+            else
+            {
+                // Drop the cargo on the ground
+                currentPackage.isPickedUp = false;
+                currentPackage.transform.SetParent(null);
+                currentPackage.GetComponent<Rigidbody>().useGravity = true;
+                currentPackage.GetComponent<Collider>().enabled = true;
+                currentPackage = null;
+                isEmpty = true;
+                cargoUI.CloseDetails();
+
+                Debug.Log("Dropped package.");
+            }
         }
     }
 
@@ -88,16 +105,21 @@ public class PlayerController : MonoBehaviour
         isDetails = false;
         cargoUI.CloseDetails();
     }
+
     void CheckDistance()
     {
-        Vector3 playerLoc = this.GetComponent<Transform>().position;
-        Vector3 packageLoc = lastTouchedPackage.GetComponent<Transform>().position;
+        if (lastTouchedPackage == null)
+            return;
+
+        Vector3 playerLoc = transform.position;
+        Vector3 packageLoc = lastTouchedPackage.transform.position;
 
         if (Vector3.Distance(playerLoc, packageLoc) > 3f)
         {
             lastTouchedPackage = null;
         }
     }
+
     public void HandleThrowPackage()
     {
         if (currentPackage != null)
