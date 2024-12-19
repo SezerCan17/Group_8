@@ -18,7 +18,7 @@ public class CargoSO : ScriptableObject
     public CargoType cargoType; 
     public float weight;
     public LocationType locationType;
-    public float deliveryDeadline; 
+    public int deliveryDeadline; 
      public GameObject cargoPrefab;
 
      public int durability = 100;

@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour
     public static PlayerController Instance;
 
     public CargoDurability cargoDurability;
+    
 
     public CargoUI cargoUI;
 

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,7 +6,7 @@ using UnityEngine;
 public class CargoControlManager : MonoBehaviour
 {
     public CustomerSatisfaction customerSatisfaction;
-    public void CargoCheck(Package cargo)
+    public void CargoCheck(Package cargo, float time)
     {
         switch (cargo.cargoSO.cargoType)
         {
@@ -30,6 +31,16 @@ public class CargoControlManager : MonoBehaviour
                     customerSatisfaction.CalculateSatisfactionMinus(15);
 
                 }
+
+                if((int)time <= cargo.cargoSO.deliveryDeadline)
+                {
+                    customerSatisfaction.CalculateSatisfactionPlus(8);
+
+                }
+                else{
+                    customerSatisfaction.CalculateSatisfactionMinus(10);
+
+                }
                 break;
 
             case CargoType.Electronics:
@@ -46,6 +57,15 @@ public class CargoControlManager : MonoBehaviour
                 else if(cargo.cargoSO.durability<80 && cargo.cargoSO.durability>=0)
                 {
                     customerSatisfaction.CalculateSatisfactionMinus(23);
+
+                }
+                 if((int)time <= cargo.cargoSO.deliveryDeadline)
+                {
+                    customerSatisfaction.CalculateSatisfactionPlus(13);
+
+                }
+                else{
+                    customerSatisfaction.CalculateSatisfactionMinus(35);
 
                 }
                 
@@ -72,6 +92,15 @@ public class CargoControlManager : MonoBehaviour
                     customerSatisfaction.CalculateSatisfactionMinus(12);
 
                 }
+                 if((int)time <= cargo.cargoSO.deliveryDeadline)
+                {
+                    customerSatisfaction.CalculateSatisfactionPlus(8);
+
+                }
+                else{
+                    customerSatisfaction.CalculateSatisfactionMinus(10);
+
+                }
                 break;
 
             case CargoType.Furniture:
@@ -93,6 +122,15 @@ public class CargoControlManager : MonoBehaviour
                 else
                 {
                     customerSatisfaction.CalculateSatisfactionMinus(13);
+
+                }
+                 if((int)time <= cargo.cargoSO.deliveryDeadline)
+                {
+                    customerSatisfaction.CalculateSatisfactionPlus(8);
+
+                }
+                else{
+                    customerSatisfaction.CalculateSatisfactionMinus(10);
 
                 }
                 break;
@@ -117,6 +155,15 @@ public class CargoControlManager : MonoBehaviour
                 {
                     customerSatisfaction.CalculateSatisfactionMinus(19);
 
+                }
+                 if((int)time <= cargo.cargoSO.deliveryDeadline)
+                {
+                    customerSatisfaction.CalculateSatisfactionPlus(8);
+
+                }
+                else{
+                    customerSatisfaction.CalculateSatisfactionMinus(10);
+
                 }break;
 
             case CargoType.Industrial:
@@ -140,6 +187,15 @@ public class CargoControlManager : MonoBehaviour
                     customerSatisfaction.CalculateSatisfactionMinus(17);
 
                 }
+                 if((int)time <= cargo.cargoSO.deliveryDeadline)
+                {
+                    customerSatisfaction.CalculateSatisfactionPlus(8);
+
+                }
+                else{
+                    customerSatisfaction.CalculateSatisfactionMinus(280);
+
+                }
                 break;
 
             default:
@@ -147,4 +203,6 @@ public class CargoControlManager : MonoBehaviour
                 break;
         }
     }
+
+    
 }

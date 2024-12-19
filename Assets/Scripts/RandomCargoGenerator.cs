@@ -2,12 +2,12 @@ using UnityEngine;
 
 public class RandomCargoGenerator : MonoBehaviour
 {
-    public LocationSO[] locations; // Mevcut tüm lokasyonlar
-    public string[] cargoNames = { "Laptop", "Pizza", "Jeans", "Chair", "Passport" }; // Rastgele isimler
+    public LocationSO[] locations; 
+    public string[] cargoNames = { "Laptop", "Pizza", "Jeans", "Chair", "Passport" }; 
     public float minWeight = 1f;
     public float maxWeight = 50f;
-    public float minDeliveryTime = 30f; // Minimum teslimat süresi (saniye)
-    public float maxDeliveryTime = 300f; // Maksimum teslimat süresi (saniye)
+    public int minDeliveryTime = 30; 
+    public int maxDeliveryTime = 300; 
 
     public CargoSO GenerateRandomCargo()
     {

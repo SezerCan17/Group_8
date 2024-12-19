@@ -7,7 +7,7 @@ public class Timer : MonoBehaviour
     public TMP_Text uiText; 
     
 
-    private float elapsedTime = 0f; 
+    public float elapsedTime = 0f; 
     private bool isTimerRunning = true; 
 
     void Update()

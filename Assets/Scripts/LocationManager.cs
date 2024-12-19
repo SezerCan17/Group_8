@@ -18,6 +18,6 @@ public class LocationManager : MonoBehaviour
         }
 
         Debug.LogWarning("Pozisyon bulunamadı: " + locationType);
-        return Vector3.zero; // Hata durumunda varsayılan pozisyon döndür
+        return Vector3.zero;
     }
 }
