@@ -10,7 +10,7 @@ public class LightingManager : MonoBehaviour
 
     [SerializeField, Range(0, 10)] float TimeOfDay;
 
-    private float cycleDuration = 30f;
+    [SerializeField] private float cycleDuration = 30f;
     private float timeAccumulator = 0f;
     private void Update()
     {

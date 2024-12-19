@@ -103,6 +103,9 @@ public class PlayerController : MonoBehaviour
         if (currentPackage != null)
         {
             isEmpty = true;
+            currentPackage.isPickedUp = false;
+            currentPackage.transform.SetParent(null);
+
             Vector3 throwDirection = transform.forward;
             float throwForce = 25f;
             currentPackage.GetComponent<Rigidbody>().AddForce(throwDirection.normalized * throwForce, ForceMode.Impulse);
@@ -112,9 +115,6 @@ public class PlayerController : MonoBehaviour
             cargoUI.CloseDetails();
             cargoDurability.CalculateDurability(currentPackage);
 
-            GetComponent<PlayerMovement>().ChangeAnimationState("Idle", 0);
-            currentPackage.isPickedUp = false;
-            currentPackage.transform.SetParent(null);
             currentPackage = null;
 
             Debug.Log("Threw package.");
