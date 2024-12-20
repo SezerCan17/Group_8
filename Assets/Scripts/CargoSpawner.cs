@@ -19,6 +19,12 @@ public class CargoSpawner : MonoBehaviour
         SpawnRandomCargo();
     }
 
+    public void CargoSpawnNum(int num)
+    {
+        cargoSpawnNum = num;
+        SpawnRandomCargo();
+    }
+
     public void SpawnRandomCargo()
     {
         for (int i = 0; i < cargoSpawnNum; i++)
