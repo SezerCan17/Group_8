@@ -11,7 +11,7 @@ public class LightingManager : MonoBehaviour
     [SerializeField, Range(0, 10)] float TimeOfDay;
 
     [SerializeField] private float cycleDuration = 30f;
-    private float timeAccumulator = 0f;
+    public float timeAccumulator = 0f;
     private void Update()
     {
         if (Preset == null) return;
@@ -22,11 +22,11 @@ public class LightingManager : MonoBehaviour
 
             if (timeAccumulator >= cycleDuration)
             {
-                timeAccumulator = 0f; // Döngüyü resetle
-                TimeOfDay = TimeOfDay >= 5 ? 0f : 5f; // Gündüz/gece arasýnda geçiþ yap
+                timeAccumulator = 0f; 
+                TimeOfDay = TimeOfDay >= 5 ? 0f : 5f; 
             }
 
-            float transitionPercent = timeAccumulator / cycleDuration; // Geçiþ yüzdesi
+            float transitionPercent = timeAccumulator / cycleDuration; 
             UpdateLighting((TimeOfDay + transitionPercent * 5f) / 10f);
         }
         else
