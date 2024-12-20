@@ -16,6 +16,8 @@ public class UIManager : MonoBehaviour
 
     [SerializeField] private TMP_Text dayText;
 
+    [SerializeField] public GameObject gameOverPanel;
+
     public GameManager GameManager;
     
     
@@ -64,6 +66,12 @@ public class UIManager : MonoBehaviour
     {
         dayText.text = "Day " + GameManager.day.ToString();
 
+    }
+
+    public void GameOver()
+    {
+        gameOverPanel.SetActive(true);
+        Debug.Log("Game Over");
     }
 
 

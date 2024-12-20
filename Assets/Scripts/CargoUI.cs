@@ -23,11 +23,11 @@ public class CargoUI : MonoBehaviour
         details.SetActive(true);
 
         Package cargoPackage = cargo.gameObject.GetComponent<Package>();
-        cargoType.text = cargoPackage.cargoSO.cargoType.ToString();
-        locationType.text = cargoPackage.cargoSO.locationType.ToString();
-        deliveryDeadline.text = cargoPackage.cargoSO.deliveryDeadline.ToString();
-        weight.text = cargoPackage.cargoSO.weight.ToString() + " kg"; 
-        durability.text = cargoPackage.cargoSO.durability.ToString();
+        cargoType.text = " Cargo Type: " + cargoPackage.cargoSO.cargoType.ToString();
+        locationType.text = " Location: " + cargoPackage.cargoSO.locationType.ToString();
+        deliveryDeadline.text = " Deadline: " + cargoPackage.cargoSO.deliveryDeadline.ToString();
+        weight.text = " Weight: " + cargoPackage.cargoSO.weight.ToString() + " kg"; 
+        durability.text = " Durability: " + cargoPackage.cargoSO.durability.ToString();
         navigationSystem.SetTarget(cargo);
     }
 

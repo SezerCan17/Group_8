@@ -9,6 +9,9 @@ public class GameManager : MonoBehaviour
     public UIManager uIManager;
     public CoinManager coinManager;
     public CargoSpawner cargoSpawner;
+    public EconomyController economyController;
+    public CustomerSatisfaction customerSatisfaction;
+    public SecurityandHealthManager securityandHealthManager;
 
     public GameObject car1;
     public GameObject car2;
@@ -41,6 +44,7 @@ public class GameManager : MonoBehaviour
     public void StartDay()
     {
         Time.timeScale = 1;
+        
         Debug.Log("Start of the day");
     }
 
@@ -49,6 +53,12 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 0;
         uIManager.Market();
         Debug.Log("Waiting for the next day");
+    }
+
+    public void GameOver()
+    {
+        Debug.Log("Game Over");
+        uIManager.GameOver();
     }
 
     public void CargoSpawnNum()
@@ -63,6 +73,7 @@ public class GameManager : MonoBehaviour
     {
         Time.timeScale = 1;
         uIManager.market.SetActive(false);
+        CargoSpawnNum();
     }
 
     public void car1Button()
@@ -96,6 +107,19 @@ public class GameManager : MonoBehaviour
             coinManager.CoinCalculateMinus(7500);
         }
 
+    }
+
+    public void GameOverMenuQuitButton()
+    {
+        coinManager.coin = 0;
+        economyController.economy = 100;
+        customerSatisfaction.satisfaction = 100;
+        customerSatisfaction.govermentSatisfaction = 100;
+        securityandHealthManager.securityandhealth = 100;
+        uIManager.CoinUIText(coinManager.coin);
+        Restart();
+        uIManager.gameOverPanel.SetActive(false);
+        
     }
 
 

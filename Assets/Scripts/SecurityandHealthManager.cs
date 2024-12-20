@@ -6,6 +6,16 @@ public class SecurityandHealthManager : MonoBehaviour
 {
     public UIManager uIManager;
     public int securityandhealth = 100;
+    public GameManager gameManager;
+
+    void Update()
+    {
+        if(securityandhealth <= 0)
+        {
+            gameManager.GameOver();
+            Debug.Log("Game Over");
+        }
+    }
     public void CalculateSecurityandHealthMinus(int n)
     {
         securityandhealth -= n;
