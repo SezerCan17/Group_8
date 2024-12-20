@@ -2,33 +2,44 @@ using UnityEngine;
 
 public class NavigationSystem : MonoBehaviour
 {
-    public Transform arrow; 
-    public GameObject player; 
-    public LocationSO locationSO; 
-    private Vector3 targetPosition; 
+    public Transform arrow;
+    public GameObject player;
+    public LocationSO locationSO;
+    private Vector3 targetPosition;
 
-    public Camera mainCamera; 
+    public Camera mainCamera;
 
-    void Update()
+    private float initialArrowAngle; // Başlangıçtaki ok açısını tutacak değişken
+
+    void Start()
     {
-        if (arrow != null && player != null && mainCamera != null)
-        {
-            
-            Vector3 playerScreenPos = mainCamera.WorldToScreenPoint(player.transform.position);
-            Vector3 targetScreenPos = mainCamera.WorldToScreenPoint(targetPosition);
-
-            
-            Vector3 direction = (targetScreenPos - playerScreenPos).normalized;
-
-            
-            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-
-            
-            arrow.rotation = Quaternion.Euler(0, 0, angle);
-        }
+        // Başlangıçta arrow'un sol üste baktığını varsayalım
+        initialArrowAngle = arrow.rotation.eulerAngles.z;
     }
 
-    
+    void Update()
+{
+    if (arrow != null && player != null && mainCamera != null)
+    {
+        // Oyuncu ve hedef pozisyonlarının ekran koordinatlarını alıyoruz
+        Vector3 playerScreenPos = mainCamera.WorldToScreenPoint(player.transform.position);
+        Vector3 targetScreenPos = mainCamera.WorldToScreenPoint(targetPosition);
+
+        // Yönü hesaplıyoruz
+        Vector3 direction = (targetScreenPos - playerScreenPos).normalized;
+
+        // Yön açısını hesaplıyoruz
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+
+        // Arrow'un rotasını ayarlarken, başlangıçtaki açıyı ekliyoruz
+        float finalAngle = angle + initialArrowAngle;
+
+        // Okun doğru rotada dönmesini sağlıyoruz
+        arrow.rotation = Quaternion.Euler(0, 0, finalAngle-125);
+    }
+}
+
+    // Hedef belirleme fonksiyonu
     public void SetTarget(Package cargo)
     {
         if (cargo == null) return;
@@ -49,6 +60,7 @@ public class NavigationSystem : MonoBehaviour
         }
     }
 
+    // Dinamik hedef belirleme fonksiyonu
     public void SetDynamicTarget(Vector3 newTargetPosition)
     {
         targetPosition = newTargetPosition;
