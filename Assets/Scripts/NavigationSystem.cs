@@ -11,7 +11,7 @@ public class NavigationSystem : MonoBehaviour
 
     public Camera mainCamera;
 
-    public GameObject cargoOffice;
+    //public GameObject cargoOffice;
 
     private float initialArrowAngle; 
 

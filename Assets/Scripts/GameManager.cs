@@ -16,12 +16,15 @@ public class GameManager : MonoBehaviour
     public LightingManager lightingManager;
 
     public GameObject car1;
-    public GameObject car2;
+    
     public GameObject navigation;
 
     void Awake()
     {
-        lightingManager.timeAccumulator=0f;
+        //lightingManager.timeAccumulator=0f;
+        car1.SetActive(false);
+        
+        navigation.SetActive(false);
         Waiting();
     }
 
@@ -98,14 +101,7 @@ public class GameManager : MonoBehaviour
 
     }
 
-    public void car2Button()
-    {
-        car2.SetActive(true);
-        if(coinManager.coin>=10000)
-        {
-           coinManager.CoinCalculateMinus(10000);
-        }
-    }
+    
 
     public void navigationButton()
     {
@@ -115,6 +111,7 @@ public class GameManager : MonoBehaviour
         if(coinManager.coin>=7500)
         {
             coinManager.CoinCalculateMinus(7500);
+            
         }
 
     }
