@@ -37,7 +37,7 @@ public class DeliveryManager : MonoBehaviour
             {
                 Debug.Log("Doğru teslimat adresi!");
                 
-                cargoControlManager.CargoCheck(cargoPackage,timer.elapsedTime);
+                cargoControlManager.CargoCheck(cargoPackage,timer.minutes);
                 cargoSpawner.cargoList.Remove(cargo);
                 Debug.Log("Kalan kargo sayısı: " + cargoSpawner.cargoList.Count);
                 //locationSO.predefinedCoordinates.Remove(locationType);
