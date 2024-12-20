@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2402481839418155084}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: 5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41,7 +41,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6620560782529931713}
   - component: {fileID: 4202058430468235077}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: wheel-front-left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -111,7 +111,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2230087280798390192}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: 4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -142,7 +142,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2155488092337719518}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: TrunkLocation
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -175,13 +175,13 @@ GameObject:
   - component: {fileID: 2553182031399451960}
   - component: {fileID: 2397923062164025987}
   - component: {fileID: 2987239387627251406}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: MinimapCarIcon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2553182031399451960
 Transform:
   m_ObjectHideFlags: 0
@@ -191,8 +191,8 @@ Transform:
   m_GameObject: {fileID: 4736523527001535927}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.7071068, z: -0.7071068, w: 0}
-  m_LocalPosition: {x: -0.054793157, y: 1.8287671, z: 0.80656344}
-  m_LocalScale: {x: 1.369863, y: 1.3698632, z: 0.3424658}
+  m_LocalPosition: {x: 0, y: 40, z: 0}
+  m_LocalScale: {x: 6, y: 6, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3244017698704164481}
@@ -256,7 +256,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 250534438460465719}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: placeableAreas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -293,7 +293,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3834113697251565117}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: 6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -324,7 +324,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 269804651640549829}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: CharacterSpawnPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -356,7 +356,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1406859566649379536}
   - component: {fileID: 1697101800394472867}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: wheel-front-right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -426,7 +426,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7033044242988172263}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -458,7 +458,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3398838680650637376}
   - component: {fileID: 4804932253916131704}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: wheel-back-right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -528,7 +528,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3469559885120397422}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -559,7 +559,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1388897063291782833}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -591,7 +591,7 @@ GameObject:
   m_Component:
   - component: {fileID: 883935139056253740}
   - component: {fileID: 2240622803206094880}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: wheel-back-left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -661,7 +661,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9142672815400426810}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: colliders
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -695,6 +695,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 361438334431487665, guid: b7abc58686b0ef34e96ae644036f9adb,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 525614543266048990, guid: b7abc58686b0ef34e96ae644036f9adb,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -718,7 +723,7 @@ PrefabInstance:
     - target: {fileID: 525614543266048990, guid: b7abc58686b0ef34e96ae644036f9adb,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 525614543266048990, guid: b7abc58686b0ef34e96ae644036f9adb,
         type: 3}
@@ -745,6 +750,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1300578287172718540, guid: b7abc58686b0ef34e96ae644036f9adb,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2300121590574146242, guid: b7abc58686b0ef34e96ae644036f9adb,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2730826273333883483, guid: b7abc58686b0ef34e96ae644036f9adb,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 3037711679599503241, guid: b7abc58686b0ef34e96ae644036f9adb,
         type: 3}
       propertyPath: m_Enabled
@@ -754,6 +774,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: truck_final_version Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 6689731804198020564, guid: b7abc58686b0ef34e96ae644036f9adb,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 9078518927342165519, guid: b7abc58686b0ef34e96ae644036f9adb,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
