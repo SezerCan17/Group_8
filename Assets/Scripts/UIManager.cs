@@ -13,6 +13,12 @@ public class UIManager : MonoBehaviour
 
     [SerializeField] private Image govermentSatisfactionBarImage;
     [SerializeField] public GameObject market;
+
+    [SerializeField] private TMP_Text dayText;
+
+    [SerializeField] public GameObject gameOverPanel;
+
+    public GameManager GameManager;
     
     
 
@@ -54,6 +60,18 @@ public class UIManager : MonoBehaviour
     {
         market.SetActive(true);
         Debug.Log("Market");
+    }
+
+    public void DayPrint()
+    {
+        dayText.text = "Day " + GameManager.day.ToString();
+
+    }
+
+    public void GameOver()
+    {
+        gameOverPanel.SetActive(true);
+        Debug.Log("Game Over");
     }
 
 
