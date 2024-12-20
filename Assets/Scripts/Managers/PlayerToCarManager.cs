@@ -10,6 +10,10 @@ public class PlayerToCarManager : MonoBehaviour
     public CinemachineVirtualCamera cinemachineCamera;
     public Transform CharSpawnPoint;
     public float switchDistance = 2.0f;
+    public GameObject MinimapPlayerIcon;
+    public GameObject MinimapCarIcon;
+    public Camera MinimapCamera;
+
 
     private bool isPlayerControlling = true;
     private PlayerController playerController;
@@ -60,15 +64,10 @@ public class PlayerToCarManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.E))
         {
             // Check if the player is near the CharSpawnPoint
-            if (Vector3.Distance(player.transform.position, CharSpawnPoint.position) <= switchDistance)
+            if (Vector3.Distance(player.transform.position, CharSpawnPoint.position) <= switchDistance || !isPlayerControlling)
             {
                 DoTheTransition();
             }
-            else if(!isPlayerControlling)
-            {
-                DoTheTransition();
-            }
-                
         }
     }
 
@@ -80,7 +79,14 @@ public class PlayerToCarManager : MonoBehaviour
             // Change camera follow target to car
             cinemachineCamera.Follow = car.transform;
 
+            // Set minimap icon to car and update minimap camera target
+            MinimapCarIcon.SetActive(true);
+            MinimapPlayerIcon.SetActive(false);
+
+            MinimapCamera.transform.SetParent(car.transform);
+
             // Deactivate player controller and activate car controller
+            playerController.enabled = false;
             player.SetActive(false);
             carController.enabled = true;
 
@@ -89,17 +95,23 @@ public class PlayerToCarManager : MonoBehaviour
         else
         {
             // Transition from car to player
-            player.transform.position = car.transform.position + car.transform.right * 2; // Teleport player next to car
-
             // Change camera follow target to player
             cinemachineCamera.Follow = player.transform;
+
+            // Set minimap icon to player and update minimap camera target
+            MinimapCarIcon.SetActive(false);
+            MinimapPlayerIcon.SetActive(true);
+
+            //MinimapCamera.transform.SetParent(player.transform);
 
             // Deactivate car controller and activate player controller
             carController.enabled = false;
             player.transform.position = CharSpawnPoint.position;
             player.SetActive(true);
+            playerController.enabled = true;
 
             isPlayerControlling = true;
         }
     }
+
 }

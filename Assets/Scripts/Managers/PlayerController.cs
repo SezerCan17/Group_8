@@ -25,14 +25,14 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E)) // Example key for picking up a package
+        /*if (Input.GetKeyDown(KeyCode.E)) // Example key for picking up a package
         {
             HandlePickUpPackage();
         }
         if (Input.GetKeyDown(KeyCode.Q)) // Example key for dropping a package
         {
             HandleDropPackage();
-        }
+        }*/
     }
 
     private void OnDrawGizmos()
