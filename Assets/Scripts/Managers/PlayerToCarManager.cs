@@ -78,12 +78,13 @@ public class PlayerToCarManager : MonoBehaviour
             // Transition from player to car
             // Change camera follow target to car
             cinemachineCamera.Follow = car.transform;
+            cinemachineCamera.LookAt = car.transform;
 
             // Set minimap icon to car and update minimap camera target
             MinimapCarIcon.SetActive(true);
             MinimapPlayerIcon.SetActive(false);
 
-            MinimapCamera.transform.SetParent(car.transform);
+            //MinimapCamera.transform.SetParent(car.transform);
 
             // Deactivate player controller and activate car controller
             playerController.enabled = false;
@@ -97,6 +98,7 @@ public class PlayerToCarManager : MonoBehaviour
             // Transition from car to player
             // Change camera follow target to player
             cinemachineCamera.Follow = player.transform;
+            cinemachineCamera.LookAt = player.transform;
 
             // Set minimap icon to player and update minimap camera target
             MinimapCarIcon.SetActive(false);
