@@ -11,8 +11,7 @@ public class GameAssets : MonoBehaviour
     public enum SoundType
     {
         throwHit,
-        run,
-
+        theme,
     }
     public List<Sound> sounds = new List<Sound>();
     public static GameAssets Instance

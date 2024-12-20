@@ -157,6 +157,7 @@ public class PlayerController : MonoBehaviour
             Vector3 throwDirection = transform.forward;
             float throwForce = 25f;
             currentPackage.GetComponent<Rigidbody>().AddForce(throwDirection.normalized * throwForce, ForceMode.Impulse);
+            SoundManager.PlaySound(GameAssets.SoundType.throwHit);
             currentPackage.GetComponent<Rigidbody>().isKinematic = false;
             currentPackage.GetComponent<Rigidbody>().useGravity = true;
             currentPackage.GetComponent<Collider>().enabled = true;
