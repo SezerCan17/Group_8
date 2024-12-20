@@ -10,9 +10,9 @@ public class GameAssets : MonoBehaviour
     public GameObject particlePrefab;
     public enum SoundType
     {
-        hit,
-        success,
-        fail
+        throwHit,
+        run,
+
     }
     public List<Sound> sounds = new List<Sound>();
     public static GameAssets Instance
