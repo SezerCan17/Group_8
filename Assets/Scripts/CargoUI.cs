@@ -14,6 +14,8 @@ public class CargoUI : MonoBehaviour
 
     [SerializeField] private GameObject details;
 
+    public NavigationSystem navigationSystem;
+
     
 
     public void CargoDetails(Package cargo)
@@ -26,6 +28,7 @@ public class CargoUI : MonoBehaviour
         deliveryDeadline.text = cargoPackage.cargoSO.deliveryDeadline.ToString();
         weight.text = cargoPackage.cargoSO.weight.ToString() + " kg"; 
         durability.text = cargoPackage.cargoSO.durability.ToString();
+        navigationSystem.SetTarget(cargo);
     }
 
     public void CloseDetails()
