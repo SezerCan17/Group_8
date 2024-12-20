@@ -21,6 +21,8 @@ public class NPCController : MonoBehaviour
     void Start()
     {
         m_NavMeshAgent = GetComponent<NavMeshAgent>();
+        m_NavMeshAgent = GetComponent<NavMeshAgent>();
+        m_PathDestinationNodeIndex = Random.Range(0, patrolPath.pathNodes.Count);
     }
 
     void Update()
