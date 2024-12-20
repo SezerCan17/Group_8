@@ -70,3 +70,10 @@ crashlytics-build.properties
 # Temporary auto-generated Android Assets
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
+Assets/Sprites/Loading Games/Toon City Pack/Materials/Buildings/Commercial Buildings/office-building-B-windows_mat.mat
+Assets/Sprites/Loading Games/Toon City Pack/Materials/Buildings/Government Buildings/bank-window_mat.mat
+Assets/Sprites/Loading Games/Toon City Pack/Materials/Buildings/Government Buildings/police-station-windows_mat.mat
+Assets/Sprites/Loading Games/Toon City Pack/Materials/Infrastructure/Infrastructure Buildings/church-A-window_mat.mat
+Assets/Sprites/Loading Games/Toon City Pack/Materials/Infrastructure/Infrastructure Buildings/clock-tower-window_mat.mat
+Assets/Sprites/Loading Games/Toon City Pack/Materials/Infrastructure/Infrastructure Buildings/hospital-window_mat.mat
+Assets/Sprites/Loading Games/Toon City Pack/Materials/Infrastructure/Infrastructure Buildings/power-plant-window_mat.mat

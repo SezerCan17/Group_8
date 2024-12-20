@@ -13,12 +13,15 @@ public class GameManager : MonoBehaviour
     public CustomerSatisfaction customerSatisfaction;
     public SecurityandHealthManager securityandHealthManager;
 
+    public LightingManager lightingManager;
+
     public GameObject car1;
     public GameObject car2;
     public GameObject navigation;
 
     void Awake()
     {
+        lightingManager.timeAccumulator=0f;
         Waiting();
     }
 
@@ -28,6 +31,7 @@ public class GameManager : MonoBehaviour
     }
     public void NextDay()
     {
+        lightingManager.timeAccumulator=0f;
         day++;
         uIManager.DayPrint();
     }
@@ -46,6 +50,7 @@ public class GameManager : MonoBehaviour
 
     public void StartDay()
     {
+        lightingManager.timeAccumulator=0f;
         Time.timeScale = 1;
         
         Debug.Log("Start of the day");
@@ -53,6 +58,7 @@ public class GameManager : MonoBehaviour
 
     public void Waiting()
     {
+        lightingManager.timeAccumulator=0f;
         Time.timeScale = 0;
         uIManager.Market();
         Debug.Log("Waiting for the next day");
@@ -60,6 +66,7 @@ public class GameManager : MonoBehaviour
 
     public void GameOver()
     {
+        lightingManager.timeAccumulator=0f;
         Debug.Log("Game Over");
         uIManager.GameOver();
     }
