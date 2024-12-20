@@ -8,6 +8,22 @@ public class CustomerSatisfaction : MonoBehaviour
     public UIManager uIManager;
     public int satisfaction = 100;
     public int govermentSatisfaction = 100;
+    public GameManager gameManager;
+
+
+    void Update()
+    {
+        if(satisfaction<=0)
+        {
+            gameManager.GameOver();
+            Debug.Log("Game Over");
+        }
+        if(govermentSatisfaction<=0)
+        {
+            gameManager.GameOver();
+            Debug.Log("Game Over");
+        }
+    }
     public void CalculateSatisfactionPlus(int n)
     {
         satisfaction+=n;

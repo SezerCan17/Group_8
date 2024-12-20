@@ -14,6 +14,8 @@ public class CargoSpawner : MonoBehaviour
 
     public List<Vector3> spawnedPoints;
 
+    public List<GameObject> cargoList;
+
     void Start()
     {
         SpawnRandomCargo();
@@ -37,6 +39,7 @@ public class CargoSpawner : MonoBehaviour
             // Kargo prefab'ını sahnede oluştur
             GameObject spawnedCargo = Instantiate(selectedCargo.cargoPrefab, spawnPoint[i].position, Quaternion.identity);
             spawnedCargo.name = selectedCargo.cargoName;
+            cargoList.Add(spawnedCargo);
 
             // Rastgele deliveryDeadline, cargoType, weight atama
             selectedCargo.deliveryDeadline = Random.Range(1, 10); // Örneğin 1-10 arası teslimat süresi

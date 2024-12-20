@@ -38,8 +38,11 @@ public class DeliveryManager : MonoBehaviour
                 Debug.Log("Doğru teslimat adresi!");
                 
                 cargoControlManager.CargoCheck(cargoPackage,timer.elapsedTime);
-                locationSO.predefinedCoordinates.Remove(locationType);
-                if(locationSO.predefinedCoordinates.Count == 0)
+                cargoSpawner.cargoList.Remove(cargo);
+                Debug.Log("Kalan kargo sayısı: " + cargoSpawner.cargoList.Count);
+                //locationSO.predefinedCoordinates.Remove(locationType);
+                //Debug.Log("Kalan teslimat adresi sayısı: " + locationSO.predefinedCoordinates.Count);
+                if(cargoSpawner.cargoList.Count == 0)
                 {
                     gameManager.EndDay();
                     Debug.Log("Tüm kargolar teslim edildi!");
