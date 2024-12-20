@@ -101,7 +101,7 @@ public class PlayerController : MonoBehaviour
                     currentPackage.transform.SetParent(nextTrunkLocation);
                     currentPackage.transform.localPosition = Vector3.zero;
                     Rigidbody packageRigidbody = currentPackage.GetComponent<Rigidbody>();
-                    packageRigidbody.isKinematic = false;
+                    packageRigidbody.isKinematic = true;
                     packageRigidbody.useGravity = false;
                     currentPackage.GetComponent<Collider>().enabled = true;
                     currentPackage = null;
