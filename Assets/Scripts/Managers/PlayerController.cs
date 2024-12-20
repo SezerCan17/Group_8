@@ -101,7 +101,7 @@ public class PlayerController : MonoBehaviour
                     currentPackage.transform.SetParent(nextTrunkLocation);
                     currentPackage.transform.localPosition = Vector3.zero;
                     Rigidbody packageRigidbody = currentPackage.GetComponent<Rigidbody>();
-                    packageRigidbody.isKinematic = true;
+                    packageRigidbody.isKinematic = false;
                     packageRigidbody.useGravity = false;
                     currentPackage.GetComponent<Collider>().enabled = true;
                     currentPackage = null;
@@ -149,6 +149,7 @@ public class PlayerController : MonoBehaviour
     {
         if (currentPackage != null)
         {
+            isEmpty = true;
             isThrew = true;
             currentPackage.isPickedUp = false;
             currentPackage.transform.SetParent(null);
@@ -161,9 +162,8 @@ public class PlayerController : MonoBehaviour
             currentPackage.GetComponent<Collider>().enabled = true;
             cargoUI.CloseDetails();
             cargoDurability.CalculateDurability(currentPackage);
-
             currentPackage = null;
-            isEmpty = true;
+
             Debug.Log("Threw package.");
         }
     }
