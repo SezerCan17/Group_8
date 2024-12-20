@@ -40,8 +40,7 @@ public class DeliveryManager : MonoBehaviour
                 cargoControlManager.CargoCheck(cargoPackage,timer.minutes);
                 cargoSpawner.cargoList.Remove(cargo);
                 Debug.Log("Kalan kargo sayısı: " + cargoSpawner.cargoList.Count);
-                //locationSO.predefinedCoordinates.Remove(locationType);
-                //Debug.Log("Kalan teslimat adresi sayısı: " + locationSO.predefinedCoordinates.Count);
+                
                 if(cargoSpawner.cargoList.Count == 0)
                 {
                     gameManager.EndDay();

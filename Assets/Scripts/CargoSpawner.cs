@@ -42,7 +42,7 @@ public class CargoSpawner : MonoBehaviour
             cargoList.Add(spawnedCargo);
 
             
-            selectedCargo.deliveryDeadline = Random.Range(10, 18); 
+            selectedCargo.deliveryDeadline = Random.Range(11, 18); 
             selectedCargo.cargoType = (CargoType)Random.Range(0, System.Enum.GetValues(typeof(CargoType)).Length); 
             selectedCargo.weight = Random.Range(1f, 50f); 
 

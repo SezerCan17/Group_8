@@ -25,7 +25,7 @@ public class CargoUI : MonoBehaviour
         Package cargoPackage = cargo.gameObject.GetComponent<Package>();
         cargoType.text = " Cargo Type: " + cargoPackage.cargoSO.cargoType.ToString();
         locationType.text = " Location: " + cargoPackage.cargoSO.locationType.ToString();
-        deliveryDeadline.text = " Deadline: " + cargoPackage.cargoSO.deliveryDeadline.ToString();
+        deliveryDeadline.text = " Deadline: " + cargoPackage.cargoSO.deliveryDeadline.ToString() + ":00";
         weight.text = " Weight: " + cargoPackage.cargoSO.weight.ToString() + " kg"; 
         durability.text = " Durability: " + cargoPackage.cargoSO.durability.ToString();
         navigationSystem.SetTarget(cargo);

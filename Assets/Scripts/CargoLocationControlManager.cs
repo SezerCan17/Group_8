@@ -14,7 +14,7 @@ public class CargoLocationControlManager : MonoBehaviour
     {
         if(onTime)
         {
-            customerSatisfaction.CalculateGovermentSatisfactionPlus(10);
+            customerSatisfaction.CalculateGovermentSatisfactionPlus(5);
 
         }
         else
@@ -27,14 +27,14 @@ public class CargoLocationControlManager : MonoBehaviour
     {
         if(onTime)
         {
-            economyController.EconomyCalculatePlus(10);
-            customerSatisfaction.CalculateGovermentSatisfactionPlus(10);
+            economyController.EconomyCalculatePlus(5);
+            customerSatisfaction.CalculateGovermentSatisfactionPlus(5);
 
         }
         else
         {
-            economyController.EconomyCalculateMinus(10);
-            customerSatisfaction.CalculateGovermentSatisfactionMinus(20);
+            economyController.EconomyCalculateMinus(5);
+            customerSatisfaction.CalculateGovermentSatisfactionMinus(5);
 
         }
         Debug.Log("Bu bir pizzacı.");
@@ -43,14 +43,14 @@ public class CargoLocationControlManager : MonoBehaviour
     {
         if(onTime)
         {
-            economyController.EconomyCalculatePlus(10);
-            customerSatisfaction.CalculateGovermentSatisfactionPlus(10);
+            economyController.EconomyCalculatePlus(5);
+            customerSatisfaction.CalculateGovermentSatisfactionPlus(5);
 
         }
         else
         {
-            economyController.EconomyCalculateMinus(10);
-            customerSatisfaction.CalculateGovermentSatisfactionMinus(20);
+            economyController.EconomyCalculateMinus(5);
+            customerSatisfaction.CalculateGovermentSatisfactionMinus(5);
 
         }
         Debug.Log("Bu bir dondurma dükkanı.");
@@ -59,14 +59,14 @@ public class CargoLocationControlManager : MonoBehaviour
     {
         if(onTime)
         {
-            economyController.EconomyCalculatePlus(10);
-            customerSatisfaction.CalculateGovermentSatisfactionPlus(10);
+            economyController.EconomyCalculatePlus(5);
+            customerSatisfaction.CalculateGovermentSatisfactionPlus(5);
 
         }
         else
         {
-            economyController.EconomyCalculateMinus(10);
-            customerSatisfaction.CalculateGovermentSatisfactionMinus(20);
+            economyController.EconomyCalculateMinus(5);
+            customerSatisfaction.CalculateGovermentSatisfactionMinus(5);
 
         }
         Debug.Log("Bu bir burger dükkanı.");
@@ -75,14 +75,14 @@ public class CargoLocationControlManager : MonoBehaviour
     {
         if(onTime)
         {
-            economyController.EconomyCalculatePlus(10);
-            customerSatisfaction.CalculateGovermentSatisfactionPlus(10);
+            economyController.EconomyCalculatePlus(5);
+            customerSatisfaction.CalculateGovermentSatisfactionPlus(5);
 
         }
         else
         {
-            economyController.EconomyCalculateMinus(10);
-            customerSatisfaction.CalculateGovermentSatisfactionMinus(20);
+            economyController.EconomyCalculateMinus(5);
+            customerSatisfaction.CalculateGovermentSatisfactionMinus(5);
 
         }
         Debug.Log("Bu bir kahve dükkanı.");
@@ -91,14 +91,14 @@ public class CargoLocationControlManager : MonoBehaviour
     {
         if(onTime)
         {
-            economyController.EconomyCalculatePlus(10);
-            customerSatisfaction.CalculateGovermentSatisfactionPlus(10);
+            economyController.EconomyCalculatePlus(5);
+            customerSatisfaction.CalculateGovermentSatisfactionPlus(5);
 
         }
         else
         {
-            economyController.EconomyCalculateMinus(10);
-            customerSatisfaction.CalculateGovermentSatisfactionMinus(20);
+            economyController.EconomyCalculateMinus(5);
+            customerSatisfaction.CalculateGovermentSatisfactionMinus(5);
 
         }
         Debug.Log("Bu bir sosis standı.");
@@ -107,15 +107,15 @@ public class CargoLocationControlManager : MonoBehaviour
     {
         if(onTime)
         {
-            economyController.EconomyCalculatePlus(10);
-            customerSatisfaction.CalculateGovermentSatisfactionPlus(10);
+            economyController.EconomyCalculatePlus(5);
+            customerSatisfaction.CalculateGovermentSatisfactionPlus(5);
             
 
         }
         else
         {
-            economyController.EconomyCalculateMinus(10);
-            customerSatisfaction.CalculateGovermentSatisfactionMinus(20);
+            economyController.EconomyCalculateMinus(5);
+            customerSatisfaction.CalculateGovermentSatisfactionMinus(5);
 
         }
         Debug.Log("Bu bir limonata dükkanı.");
@@ -141,12 +141,12 @@ public class CargoLocationControlManager : MonoBehaviour
         if(onTime)
         {
             economyController.EconomyCalculatePlus(10);
-            customerSatisfaction.CalculateGovermentSatisfactionPlus(10);
+            customerSatisfaction.CalculateGovermentSatisfactionPlus(5);
 
         }
         else
         {
-            economyController.EconomyCalculateMinus(10);
+            economyController.EconomyCalculateMinus(5);
             customerSatisfaction.CalculateGovermentSatisfactionMinus(20);
 
         }
@@ -208,7 +208,7 @@ public class CargoLocationControlManager : MonoBehaviour
     {
         if(onTime)
         {
-            economyController.EconomyCalculatePlus(10);
+            economyController.EconomyCalculatePlus(5);
             customerSatisfaction.CalculateGovermentSatisfactionPlus(10);
             
 
@@ -216,7 +216,7 @@ public class CargoLocationControlManager : MonoBehaviour
         else
         {
             
-            customerSatisfaction.CalculateGovermentSatisfactionMinus(20);
+            customerSatisfaction.CalculateGovermentSatisfactionMinus(12);
 
         }
         Debug.Log("Bu bir otel.");
@@ -226,14 +226,14 @@ public class CargoLocationControlManager : MonoBehaviour
         if(onTime)
         {
             
-            customerSatisfaction.CalculateGovermentSatisfactionPlus(10);
+            customerSatisfaction.CalculateGovermentSatisfactionPlus(5);
             
 
         }
         else
         {
             
-            customerSatisfaction.CalculateGovermentSatisfactionMinus(20);
+            customerSatisfaction.CalculateGovermentSatisfactionMinus(5);
 
         }
 
@@ -243,14 +243,14 @@ public class CargoLocationControlManager : MonoBehaviour
     {
         if(onTime)
         {
-            economyController.EconomyCalculatePlus(10);
-            customerSatisfaction.CalculateGovermentSatisfactionPlus(10);
+            economyController.EconomyCalculatePlus(5);
+            customerSatisfaction.CalculateGovermentSatisfactionPlus(5);
 
         }
         else
         {
-            economyController.EconomyCalculateMinus(10);
-            customerSatisfaction.CalculateGovermentSatisfactionMinus(20);
+            economyController.EconomyCalculateMinus(5);
+            customerSatisfaction.CalculateGovermentSatisfactionMinus(5);
 
         }
         Debug.Log("Bu bir tenis kortu.");
@@ -308,8 +308,8 @@ public class CargoLocationControlManager : MonoBehaviour
     {
         if(onTime)
         {
-            economyController.EconomyCalculatePlus(10);
-            customerSatisfaction.CalculateGovermentSatisfactionPlus(10);
+            economyController.EconomyCalculatePlus(5);
+            customerSatisfaction.CalculateGovermentSatisfactionPlus(5);
 
         }
         else
@@ -324,8 +324,8 @@ public class CargoLocationControlManager : MonoBehaviour
     {
         if(onTime)
         {
-            economyController.EconomyCalculatePlus(10);
-            customerSatisfaction.CalculateGovermentSatisfactionPlus(10);
+            economyController.EconomyCalculatePlus(5);
+            customerSatisfaction.CalculateGovermentSatisfactionPlus(5);
 
         }
         else
@@ -340,8 +340,8 @@ public class CargoLocationControlManager : MonoBehaviour
     {
         if(onTime)
         {
-            economyController.EconomyCalculatePlus(10);
-            customerSatisfaction.CalculateGovermentSatisfactionPlus(10);
+            economyController.EconomyCalculatePlus(5);
+            customerSatisfaction.CalculateGovermentSatisfactionPlus(5);
 
         }
         else
@@ -356,8 +356,8 @@ public class CargoLocationControlManager : MonoBehaviour
     {
         if(onTime)
         {
-            economyController.EconomyCalculatePlus(10);
-            customerSatisfaction.CalculateGovermentSatisfactionPlus(10);
+            economyController.EconomyCalculatePlus(5);
+            customerSatisfaction.CalculateGovermentSatisfactionPlus(5);
 
         }
         else
