@@ -16,18 +16,26 @@ public static class SoundManager
     }
     public static void PlayGameTheme(GameAssets.SoundType soundType)
     {
-        if (themeAudioSource == null)
+        if (themeGameObject == null) // Temanýn zaten çalmadýðýndan emin olun
         {
-            Debug.LogError("Theme AudioSource not initialized. Call InitializeTheme() first.");
-            return;
-        }
-
-        AudioClip clip = GetAudioClip(soundType);
-        if (clip != null)
-        {
-            themeAudioSource.clip = clip;
-            themeAudioSource.loop = true;
+            themeGameObject = new GameObject("GameTheme");
+            themeAudioSource = themeGameObject.AddComponent<AudioSource>();
+            themeAudioSource.loop = true; // Döngüye al
+            themeAudioSource.clip = GetAudioClip(soundType);
             themeAudioSource.Play();
+        }
+        else
+        {
+            Debug.LogWarning("Game theme is already playing!");
+        }
+    }
+    public static void StopGameTheme()
+    {
+        if (themeGameObject != null && themeAudioSource != null)
+        {
+            themeAudioSource.Stop();
+            GameObject.Destroy(themeGameObject);
+            themeGameObject = null;
         }
     }
     private static AudioClip GetAudioClip(GameAssets.SoundType soundType)

@@ -22,7 +22,10 @@ public class GameManager : MonoBehaviour
         Waiting();
     }
 
-
+    private void Start()
+    {
+        SoundManager.PlayGameTheme(GameAssets.SoundType.theme);
+    }
     public void NextDay()
     {
         day++;
